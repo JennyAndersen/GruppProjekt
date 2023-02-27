@@ -16,5 +16,17 @@ namespace GruppProjekt
         {
             InitializeComponent();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LinkRegistrering_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Registrering registrering = new Registrering();
+            registrering.Show();
+            this.Hide();
+        }
     }
 }
