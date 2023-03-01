@@ -12,21 +12,60 @@ namespace GruppProjekt
 {
     public partial class LoggaIn : Form
     {
+        public static string användarnamn { get; set; }
+        public static string lösenord { get; set; }
+
+
+
         public LoggaIn()
         {
             InitializeComponent();
         }
+       
+  
 
-        private void label4_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void LinkRegistrering_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            Registrering registrering = new Registrering();
-            registrering.Show();
-            this.Hide(); 
+            try
+            {
+                användarnamn = txtAnvändarnamn.Text;
+                lösenord = txtLösenord.Text;
+
+                Dbconnection dbconnection = new Dbconnection();
+                dbconnection.kundLogin();
+
+
+
+                if (användarnamn == Dbconnection.användarnamnDb && lösenord == Dbconnection.lösenordDb)
+                {
+                    Admin admin = new Admin();
+                    admin.Show();
+                    this.Hide();
+
+                }
+                else
+                {
+                    MessageBox.Show("wrong username and password");
+                }
+            }
+            catch
+            {
+                    MessageBox.Show("w");
+
+            }
+
+
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }
