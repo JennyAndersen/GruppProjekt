@@ -26,7 +26,7 @@ namespace GruppProjekt
         {
             Registrering registrering = new Registrering();
             registrering.Show();
-            this.Hide();
+            this.Hide(); 
         }
     }
 }
