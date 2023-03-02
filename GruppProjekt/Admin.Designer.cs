@@ -30,30 +30,30 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnNollstall = new System.Windows.Forms.Button();
+            this.btnRadera = new System.Windows.Forms.Button();
+            this.btnAndra = new System.Windows.Forms.Button();
+            this.btnSpara = new System.Windows.Forms.Button();
+            this.txtbLosenord = new System.Windows.Forms.TextBox();
+            this.txtbAdress = new System.Windows.Forms.TextBox();
+            this.txtbTelefonnummer = new System.Windows.Forms.TextBox();
+            this.lblLosenord = new System.Windows.Forms.Label();
+            this.lblAdress = new System.Windows.Forms.Label();
+            this.lblTlfnr = new System.Windows.Forms.Label();
+            this.lblNamn = new System.Windows.Forms.Label();
+            this.txtbNamn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,18 +63,18 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.btnNollstall);
+            this.panel1.Controls.Add(this.btnRadera);
+            this.panel1.Controls.Add(this.btnAndra);
+            this.panel1.Controls.Add(this.btnSpara);
+            this.panel1.Controls.Add(this.txtbLosenord);
+            this.panel1.Controls.Add(this.txtbAdress);
+            this.panel1.Controls.Add(this.txtbTelefonnummer);
+            this.panel1.Controls.Add(this.lblLosenord);
+            this.panel1.Controls.Add(this.lblAdress);
+            this.panel1.Controls.Add(this.lblTlfnr);
+            this.panel1.Controls.Add(this.lblNamn);
+            this.panel1.Controls.Add(this.txtbNamn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -82,7 +82,166 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1219, 625);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(281, 14);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(48, 36);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 21;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(579, 14);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(46, 36);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightGreen;
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F);
+            this.panel2.Location = new System.Drawing.Point(330, 53);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(112, 4);
+            this.panel2.TabIndex = 19;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(18, 277);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 28;
+            this.dataGridView1.Size = new System.Drawing.Size(1183, 329);
+            this.dataGridView1.TabIndex = 18;
+            // 
+            // btnNollstall
+            // 
+            this.btnNollstall.BackColor = System.Drawing.Color.LightGreen;
+            this.btnNollstall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNollstall.Location = new System.Drawing.Point(758, 220);
+            this.btnNollstall.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnNollstall.Name = "btnNollstall";
+            this.btnNollstall.Size = new System.Drawing.Size(153, 49);
+            this.btnNollstall.TabIndex = 17;
+            this.btnNollstall.Text = "Nollställ";
+            this.btnNollstall.UseVisualStyleBackColor = false;
+            // 
+            // btnRadera
+            // 
+            this.btnRadera.BackColor = System.Drawing.Color.LightGreen;
+            this.btnRadera.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRadera.Location = new System.Drawing.Point(579, 220);
+            this.btnRadera.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRadera.Name = "btnRadera";
+            this.btnRadera.Size = new System.Drawing.Size(153, 49);
+            this.btnRadera.TabIndex = 16;
+            this.btnRadera.Text = "Radera";
+            this.btnRadera.UseVisualStyleBackColor = false;
+            // 
+            // btnAndra
+            // 
+            this.btnAndra.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAndra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAndra.Location = new System.Drawing.Point(405, 220);
+            this.btnAndra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAndra.Name = "btnAndra";
+            this.btnAndra.Size = new System.Drawing.Size(153, 49);
+            this.btnAndra.TabIndex = 15;
+            this.btnAndra.Text = "Ändra";
+            this.btnAndra.UseVisualStyleBackColor = false;
+            // 
+            // btnSpara
+            // 
+            this.btnSpara.BackColor = System.Drawing.Color.LightGreen;
+            this.btnSpara.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpara.Location = new System.Drawing.Point(226, 220);
+            this.btnSpara.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSpara.Name = "btnSpara";
+            this.btnSpara.Size = new System.Drawing.Size(153, 49);
+            this.btnSpara.TabIndex = 14;
+            this.btnSpara.Text = "Spara";
+            this.btnSpara.UseVisualStyleBackColor = false;
+            this.btnSpara.Click += new System.EventHandler(this.btnSpara_Click);
+            // 
+            // txtbLosenord
+            // 
+            this.txtbLosenord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.txtbLosenord.Location = new System.Drawing.Point(934, 159);
+            this.txtbLosenord.Name = "txtbLosenord";
+            this.txtbLosenord.Size = new System.Drawing.Size(175, 26);
+            this.txtbLosenord.TabIndex = 13;
+            // 
+            // txtbAdress
+            // 
+            this.txtbAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.txtbAdress.Location = new System.Drawing.Point(682, 159);
+            this.txtbAdress.Name = "txtbAdress";
+            this.txtbAdress.Size = new System.Drawing.Size(175, 26);
+            this.txtbAdress.TabIndex = 12;
+            // 
+            // txtbTelefonnummer
+            // 
+            this.txtbTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.txtbTelefonnummer.Location = new System.Drawing.Point(380, 159);
+            this.txtbTelefonnummer.Name = "txtbTelefonnummer";
+            this.txtbTelefonnummer.Size = new System.Drawing.Size(175, 26);
+            this.txtbTelefonnummer.TabIndex = 11;
+            // 
+            // lblLosenord
+            // 
+            this.lblLosenord.AutoSize = true;
+            this.lblLosenord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.lblLosenord.Location = new System.Drawing.Point(930, 136);
+            this.lblLosenord.Name = "lblLosenord";
+            this.lblLosenord.Size = new System.Drawing.Size(84, 20);
+            this.lblLosenord.TabIndex = 10;
+            this.lblLosenord.Text = "Lösenord";
+            // 
+            // lblAdress
+            // 
+            this.lblAdress.AutoSize = true;
+            this.lblAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.lblAdress.Location = new System.Drawing.Point(678, 136);
+            this.lblAdress.Name = "lblAdress";
+            this.lblAdress.Size = new System.Drawing.Size(65, 20);
+            this.lblAdress.TabIndex = 9;
+            this.lblAdress.Text = "Adress";
+            // 
+            // lblTlfnr
+            // 
+            this.lblTlfnr.AutoSize = true;
+            this.lblTlfnr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.lblTlfnr.Location = new System.Drawing.Point(376, 136);
+            this.lblTlfnr.Name = "lblTlfnr";
+            this.lblTlfnr.Size = new System.Drawing.Size(133, 20);
+            this.lblTlfnr.TabIndex = 8;
+            this.lblTlfnr.Text = "Telefonnummer";
+            // 
+            // lblNamn
+            // 
+            this.lblNamn.AutoSize = true;
+            this.lblNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.lblNamn.Location = new System.Drawing.Point(81, 136);
+            this.lblNamn.Name = "lblNamn";
+            this.lblNamn.Size = new System.Drawing.Size(55, 20);
+            this.lblNamn.TabIndex = 7;
+            this.lblNamn.Text = "Namn";
+            // 
+            // txtbNamn
+            // 
+            this.txtbNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.txtbNamn.Location = new System.Drawing.Point(85, 159);
+            this.txtbNamn.Name = "txtbNamn";
+            this.txtbNamn.Size = new System.Drawing.Size(175, 26);
+            this.txtbNamn.TabIndex = 6;
             // 
             // label2
             // 
@@ -114,165 +273,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.textBox1.Location = new System.Drawing.Point(85, 159);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 26);
-            this.textBox1.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(81, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Namn";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(376, 136);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(133, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Telefonnummer";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(678, 136);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 20);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Address";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(930, 136);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 20);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Lösenord";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.textBox2.Location = new System.Drawing.Point(380, 159);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(175, 26);
-            this.textBox2.TabIndex = 11;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.textBox3.Location = new System.Drawing.Point(682, 159);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(175, 26);
-            this.textBox3.TabIndex = 12;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.textBox4.Location = new System.Drawing.Point(934, 159);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(175, 26);
-            this.textBox4.TabIndex = 13;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.LightGreen;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(226, 220);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(153, 49);
-            this.btnLogin.TabIndex = 14;
-            this.btnLogin.Text = "Spara";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightGreen;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(405, 220);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 49);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Ändra";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.LightGreen;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(579, 220);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 49);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Radera";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.LightGreen;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(758, 220);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 49);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Nollställ";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 277);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1183, 329);
-            this.dataGridView1.TabIndex = 18;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.LightGreen;
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F);
-            this.panel2.Location = new System.Drawing.Point(330, 53);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(112, 4);
-            this.panel2.TabIndex = 19;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(579, 14);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(46, 36);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(281, 14);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(48, 36);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 21;
-            this.pictureBox3.TabStop = false;
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -286,10 +286,10 @@
             this.Text = "Admin";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -300,18 +300,18 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.TextBox txtbNamn;
+        private System.Windows.Forms.TextBox txtbLosenord;
+        private System.Windows.Forms.TextBox txtbAdress;
+        private System.Windows.Forms.TextBox txtbTelefonnummer;
+        private System.Windows.Forms.Label lblLosenord;
+        private System.Windows.Forms.Label lblAdress;
+        private System.Windows.Forms.Label lblTlfnr;
+        private System.Windows.Forms.Label lblNamn;
+        private System.Windows.Forms.Button btnNollstall;
+        private System.Windows.Forms.Button btnRadera;
+        private System.Windows.Forms.Button btnAndra;
+        private System.Windows.Forms.Button btnSpara;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;

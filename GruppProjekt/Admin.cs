@@ -17,9 +17,22 @@ namespace GruppProjekt
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void btnSpara_Click(object sender, EventArgs e)
         {
+            if(txtbNamn.Text == " " || txtbAdress.Text == " " || txtbTelefonnummer.Text == " " || txtbLosenord.Text == " ")
+            {
+                MessageBox.Show("Det saknas information");
+            }
+            else
+            {
+                try
+                {
 
+                }catch(Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+            }
         }
     }
 }
