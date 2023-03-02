@@ -169,6 +169,7 @@
             this.btnSpara.TabIndex = 14;
             this.btnSpara.Text = "Spara";
             this.btnSpara.UseVisualStyleBackColor = false;
+            this.btnSpara.Click += new System.EventHandler(this.btnSpara_Click);
             // 
             // txtbLosenord
             // 
