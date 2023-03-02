@@ -82,9 +82,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(-2, -1);
+            this.panel1.Location = new System.Drawing.Point(-2, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1219, 625);
+            this.panel1.Size = new System.Drawing.Size(1219, 624);
             this.panel1.TabIndex = 0;
             // 
             // btnVisa
@@ -133,7 +133,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(605, 7);
+            this.pictureBox2.Location = new System.Drawing.Point(467, 7);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(115, 83);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -151,6 +151,7 @@
             // 
             // gridPersonal
             // 
+            this.gridPersonal.BackgroundColor = System.Drawing.Color.White;
             this.gridPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridPersonal.Location = new System.Drawing.Point(18, 277);
             this.gridPersonal.Name = "gridPersonal";
@@ -202,7 +203,7 @@
             // txtbLosenord
             // 
             this.txtbLosenord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbLosenord.Location = new System.Drawing.Point(934, 159);
+            this.txtbLosenord.Location = new System.Drawing.Point(605, 159);
             this.txtbLosenord.Name = "txtbLosenord";
             this.txtbLosenord.Size = new System.Drawing.Size(175, 26);
             this.txtbLosenord.TabIndex = 13;
@@ -210,7 +211,7 @@
             // txtbAdress
             // 
             this.txtbAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbAdress.Location = new System.Drawing.Point(682, 159);
+            this.txtbAdress.Location = new System.Drawing.Point(405, 159);
             this.txtbAdress.Name = "txtbAdress";
             this.txtbAdress.Size = new System.Drawing.Size(175, 26);
             this.txtbAdress.TabIndex = 12;
@@ -218,7 +219,7 @@
             // txtbTelefonnummer
             // 
             this.txtbTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbTelefonnummer.Location = new System.Drawing.Point(380, 159);
+            this.txtbTelefonnummer.Location = new System.Drawing.Point(212, 159);
             this.txtbTelefonnummer.Name = "txtbTelefonnummer";
             this.txtbTelefonnummer.Size = new System.Drawing.Size(175, 26);
             this.txtbTelefonnummer.TabIndex = 11;
@@ -227,7 +228,7 @@
             // 
             this.lblLosenord.AutoSize = true;
             this.lblLosenord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblLosenord.Location = new System.Drawing.Point(930, 136);
+            this.lblLosenord.Location = new System.Drawing.Point(601, 136);
             this.lblLosenord.Name = "lblLosenord";
             this.lblLosenord.Size = new System.Drawing.Size(84, 20);
             this.lblLosenord.TabIndex = 10;
@@ -237,7 +238,7 @@
             // 
             this.lblAdress.AutoSize = true;
             this.lblAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblAdress.Location = new System.Drawing.Point(678, 136);
+            this.lblAdress.Location = new System.Drawing.Point(401, 136);
             this.lblAdress.Name = "lblAdress";
             this.lblAdress.Size = new System.Drawing.Size(65, 20);
             this.lblAdress.TabIndex = 9;
@@ -247,7 +248,7 @@
             // 
             this.lblTelefonnummer.AutoSize = true;
             this.lblTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblTelefonnummer.Location = new System.Drawing.Point(376, 136);
+            this.lblTelefonnummer.Location = new System.Drawing.Point(208, 136);
             this.lblTelefonnummer.Name = "lblTelefonnummer";
             this.lblTelefonnummer.Size = new System.Drawing.Size(133, 20);
             this.lblTelefonnummer.TabIndex = 8;
@@ -257,7 +258,7 @@
             // 
             this.lblNamn.AutoSize = true;
             this.lblNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblNamn.Location = new System.Drawing.Point(81, 136);
+            this.lblNamn.Location = new System.Drawing.Point(14, 136);
             this.lblNamn.Name = "lblNamn";
             this.lblNamn.Size = new System.Drawing.Size(55, 20);
             this.lblNamn.TabIndex = 7;
@@ -266,7 +267,7 @@
             // txtbNamn
             // 
             this.txtbNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbNamn.Location = new System.Drawing.Point(85, 159);
+            this.txtbNamn.Location = new System.Drawing.Point(18, 159);
             this.txtbNamn.Name = "txtbNamn";
             this.txtbNamn.Size = new System.Drawing.Size(175, 26);
             this.txtbNamn.TabIndex = 6;
@@ -275,7 +276,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(726, 28);
+            this.label2.Location = new System.Drawing.Point(588, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 29);
             this.label2.TabIndex = 5;
