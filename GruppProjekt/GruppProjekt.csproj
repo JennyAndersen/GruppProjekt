@@ -104,6 +104,7 @@
     <Compile Include="LoggaIn.Designer.cs">
       <DependentUpon>LoggaIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Personal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Admin.resx">
