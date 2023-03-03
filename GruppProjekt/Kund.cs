@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GruppProjekt
 {
-    internal class Personal
+    internal class Kund 
     {
         public int id { get; set; }
         public string namn { get; set; }
@@ -15,9 +15,9 @@ namespace GruppProjekt
         public string losenord { get; set; }
 
         //Lista för personal 
-        public static List<Personal> personal = new List<Personal>();
+        public static List<Kund> kund = new List<Kund>();
 
-        public Personal(int id, string namn, string telefonnummer, string adress, string losenord)
+        public Kund(int id, string namn, string telefonnummer, string adress, string losenord)
         {
             this.id = id;
             this.namn = namn;
