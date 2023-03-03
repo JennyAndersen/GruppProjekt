@@ -16,7 +16,7 @@ namespace GruppProjekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Produkter());
+            Application.Run(new LoggaIn());
         }
     }
 }
