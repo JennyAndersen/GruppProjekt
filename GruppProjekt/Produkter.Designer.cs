@@ -49,7 +49,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblKunder = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProdukter)).BeginInit();
@@ -80,7 +80,7 @@
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lblKunder);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
@@ -288,15 +288,15 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "Produkter";
             // 
-            // label3
+            // lblKunder
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(325, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 29);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Personal";
+            this.lblKunder.AutoSize = true;
+            this.lblKunder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblKunder.Location = new System.Drawing.Point(325, 21);
+            this.lblKunder.Name = "lblKunder";
+            this.lblKunder.Size = new System.Drawing.Size(97, 29);
+            this.lblKunder.TabIndex = 23;
+            this.lblKunder.Text = "Kunder";
             // 
             // pictureBox1
             // 
@@ -336,7 +336,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblKunder;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cbMatvarugrupp;
         private System.Windows.Forms.TextBox txtbPris;

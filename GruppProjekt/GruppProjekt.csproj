@@ -103,7 +103,7 @@
     <Compile Include="LoggaIn.Designer.cs">
       <DependentUpon>LoggaIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personal.cs" />
+    <Compile Include="Kund.cs" />
     <Compile Include="Produkt.cs" />
     <Compile Include="Produkter.cs">
       <SubType>Form</SubType>

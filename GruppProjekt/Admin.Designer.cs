@@ -32,11 +32,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnVisa = new System.Windows.Forms.Button();
             this.txtbSok = new System.Windows.Forms.TextBox();
-            this.btnSok = new System.Windows.Forms.Button();
+            this.btnSokKund = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.gridPersonal = new System.Windows.Forms.DataGridView();
+            this.gridKunder = new System.Windows.Forms.DataGridView();
             this.btnRadera = new System.Windows.Forms.Button();
             this.btnAndra = new System.Windows.Forms.Button();
             this.btnSpara = new System.Windows.Forms.Button();
@@ -49,12 +49,12 @@
             this.lblNamn = new System.Windows.Forms.Label();
             this.txtbNamn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblKunder = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridKunder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,11 +63,11 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.btnVisa);
             this.panel1.Controls.Add(this.txtbSok);
-            this.panel1.Controls.Add(this.btnSok);
+            this.panel1.Controls.Add(this.btnSokKund);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.gridPersonal);
+            this.panel1.Controls.Add(this.gridKunder);
             this.panel1.Controls.Add(this.btnRadera);
             this.panel1.Controls.Add(this.btnAndra);
             this.panel1.Controls.Add(this.btnSpara);
@@ -80,7 +80,7 @@
             this.panel1.Controls.Add(this.lblNamn);
             this.panel1.Controls.Add(this.txtbNamn);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.lblKunder);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-2, 0);
             this.panel1.Name = "panel1";
@@ -108,17 +108,17 @@
             this.txtbSok.Size = new System.Drawing.Size(175, 26);
             this.txtbSok.TabIndex = 23;
             // 
-            // btnSok
+            // btnSokKund
             // 
-            this.btnSok.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSok.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSok.Location = new System.Drawing.Point(1048, 220);
-            this.btnSok.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSok.Name = "btnSok";
-            this.btnSok.Size = new System.Drawing.Size(153, 49);
-            this.btnSok.TabIndex = 22;
-            this.btnSok.Text = "Sök Personalnamn";
-            this.btnSok.UseVisualStyleBackColor = false;
+            this.btnSokKund.BackColor = System.Drawing.Color.LightGreen;
+            this.btnSokKund.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSokKund.Location = new System.Drawing.Point(1048, 220);
+            this.btnSokKund.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSokKund.Name = "btnSokKund";
+            this.btnSokKund.Size = new System.Drawing.Size(153, 49);
+            this.btnSokKund.TabIndex = 22;
+            this.btnSokKund.Text = "Sök Kundnamn";
+            this.btnSokKund.UseVisualStyleBackColor = false;
             // 
             // pictureBox3
             // 
@@ -149,17 +149,17 @@
             this.panel2.Size = new System.Drawing.Size(112, 4);
             this.panel2.TabIndex = 19;
             // 
-            // gridPersonal
+            // gridKunder
             // 
-            this.gridPersonal.BackgroundColor = System.Drawing.Color.White;
-            this.gridPersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPersonal.Location = new System.Drawing.Point(18, 277);
-            this.gridPersonal.Name = "gridPersonal";
-            this.gridPersonal.RowHeadersWidth = 62;
-            this.gridPersonal.RowTemplate.Height = 28;
-            this.gridPersonal.Size = new System.Drawing.Size(1183, 329);
-            this.gridPersonal.TabIndex = 18;
-            this.gridPersonal.SelectionChanged += new System.EventHandler(this.gridPersonal_SelectionChanged_1);
+            this.gridKunder.BackgroundColor = System.Drawing.Color.White;
+            this.gridKunder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridKunder.Location = new System.Drawing.Point(18, 277);
+            this.gridKunder.Name = "gridKunder";
+            this.gridKunder.RowHeadersWidth = 62;
+            this.gridKunder.RowTemplate.Height = 28;
+            this.gridKunder.Size = new System.Drawing.Size(1183, 329);
+            this.gridKunder.TabIndex = 18;
+            this.gridKunder.SelectionChanged += new System.EventHandler(this.gridKunder_SelectionChanged);
             // 
             // btnRadera
             // 
@@ -282,15 +282,15 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Produkter";
             // 
-            // label3
+            // lblKunder
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(325, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 29);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Personal";
+            this.lblKunder.AutoSize = true;
+            this.lblKunder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.lblKunder.Location = new System.Drawing.Point(325, 21);
+            this.lblKunder.Name = "lblKunder";
+            this.lblKunder.Size = new System.Drawing.Size(97, 29);
+            this.lblKunder.TabIndex = 4;
+            this.lblKunder.Text = "Kunder";
             // 
             // pictureBox1
             // 
@@ -317,7 +317,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPersonal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridKunder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -328,7 +328,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblKunder;
         private System.Windows.Forms.TextBox txtbNamn;
         private System.Windows.Forms.TextBox txtbLosenord;
         private System.Windows.Forms.TextBox txtbAdress;
@@ -343,9 +343,9 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView gridPersonal;
+        private System.Windows.Forms.DataGridView gridKunder;
         private System.Windows.Forms.TextBox txtbSok;
-        private System.Windows.Forms.Button btnSok;
+        private System.Windows.Forms.Button btnSokKund;
         private System.Windows.Forms.Button btnVisa;
     }
 }

@@ -19,7 +19,7 @@ namespace GruppProjekt
     {
 
         MySqlConnection conn;
-        TextBox[] txtBoxesPersonal;
+        TextBox[] txtBoxesKunder;
 
         public Admin()
         {
@@ -33,16 +33,16 @@ namespace GruppProjekt
             string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};";
             conn = new MySqlConnection(connString);
             //Skapar en array ref för input av fälten 
-            txtBoxesPersonal = new TextBox[] { txtbNamn, txtbTelefonnummer, txtbAdress, txtbLosenord };
+            txtBoxesKunder = new TextBox[] { txtbNamn, txtbTelefonnummer, txtbAdress, txtbLosenord };
         }
 
         //Metod knapp för att spara en anställd 
-        public void SparaPersonal()
+        public void SparaKunder()
         {
             //validering 
             bool valid = true;
 
-            foreach (TextBox txtBox in txtBoxesPersonal)
+            foreach (TextBox txtBox in txtBoxesKunder)
             {
                 //Trimmar test-innehållet
                 txtBox.Text = txtBox.Text.Trim();
@@ -66,7 +66,7 @@ namespace GruppProjekt
                 MessageBox.Show("Felaktig validering. Kontrollera röda fält.");
                 return;
             }
-            foreach (TextBox txtBox in txtBoxesPersonal)
+            foreach (TextBox txtBox in txtBoxesKunder)
             {
                 //Trimmar test-innehållet
                 txtBox.Text = txtBox.Text.Trim();
@@ -98,7 +98,7 @@ namespace GruppProjekt
             string losenord = txtbLosenord.Text.ToString();
 
             //Bygg upp SQL Querry 
-            string sqlQuerry = $"CALL sparaPersonal('{namn}', '{telefonnummer}', '{adress}', '{losenord}');";
+            string sqlQuerry = $"CALL sparaKunder('{namn}', '{telefonnummer}', '{adress}', '{losenord}');";
 
             //Skapar ett MySqlCommand objekt 
             MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
@@ -120,25 +120,25 @@ namespace GruppProjekt
                 MessageBox.Show(e.Message);
             }
 
-            VisaPersonal();
-            MessageBox.Show("Personal tillagd!");
+            VisaKunder();
+            MessageBox.Show("Kund tillagd!");
 
         }
 
         //Knapp Spara 
         private void btnSpara_Click(object sender, EventArgs e)
         {
-            SparaPersonal();
+            SparaKunder();
         }
 
 
         //För att visa listan 
-        public void VisaPersonal(string keyword = "")
+        public void VisaKunder(string keyword = "")
         {
             //Skapa en sql querrry 
             string sqlQuerry;
-            if (keyword == "") sqlQuerry = $"CALL visaPersonal();";
-            else sqlQuerry = $"CALL sökPersonal('{keyword}');";
+            if (keyword == "") sqlQuerry = $"CALL visaKunder();";
+            else sqlQuerry = $"CALL sökKunder('{keyword}');";
 
             //skapa ett objekt av mysqlcommand
             MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
@@ -157,25 +157,25 @@ namespace GruppProjekt
                 dt.Load(reader);
 
                 //Koppla TD objekt som DataSource till Grid
-                gridPersonal.DataSource = dt;
+                gridKunder.DataSource = dt;
 
                 //Ladda Reader på Nytt
                 reader = cmd.ExecuteReader();
 
-                //Tömma personallista 
-                Personal.personal.Clear();
+                //Tömma kundlista 
+                Kund.kund.Clear();
 
                 while (reader.Read())
                 {
                     //Hämta och spara data till variablerna 
-                    int id = Convert.ToInt32(reader["personal_id"]);
-                    string namn = reader["personal_namn"].ToString();
-                    string telefonnummer = reader["personal_telefonnummer"].ToString();
-                    string adress = reader["personal_adress"].ToString();
-                    string losenord = reader["personal_losenord"].ToString();
+                    int id = Convert.ToInt32(reader["kunder_id"]);
+                    string namn = reader["kunder_namn"].ToString();
+                    string telefonnummer = reader["kunder_telefonnummer"].ToString();
+                    string adress = reader["kunder_adress"].ToString();
+                    string losenord = reader["kunder_losenord"].ToString();
 
-                    //Skapa ett personal objekt och spara i den statiska listan 
-                    Personal.personal.Add(new Personal(id, namn, telefonnummer, adress, losenord));
+                    //Skapa ett kund objekt och spara i den statiska listan 
+                    Kund.kund.Add(new Kund(id, namn, telefonnummer, adress, losenord));
                 }
 
                 //stänga kopplingen till db
@@ -189,26 +189,26 @@ namespace GruppProjekt
             //Enabla knapp för Update och Delete
         }
 
-        private void ValjPersonal()
+        private void ValjKund()
         {
             //Kontrollera att vi har en markerad rad i grid
-            if (gridPersonal.SelectedRows.Count != 1) return;
+            if (gridKunder.SelectedRows.Count != 1) return;
 
             //Hämta data från grid
-            DataGridViewSelectedRowCollection row = gridPersonal.SelectedRows;
+            DataGridViewSelectedRowCollection row = gridKunder.SelectedRows;
             int id = Convert.ToInt32(row[0].Cells[0].Value);
 
             //Skriva in data från grid till formulär
-            foreach (Personal personal in Personal.personal)
+            foreach (Kund kund in Kund.kund)
             {
                 // Kontrollera ID property
-                if (personal.id == id)
+                if (kund.id == id)
                 {
 
-                    txtbNamn.Text = personal.namn; 
-                    txtbTelefonnummer.Text = personal.telefonnummer;
-                    txtbAdress.Text = personal.adress; 
-                    txtbLosenord.Text = personal.losenord;
+                    txtbNamn.Text = kund.namn; 
+                    txtbTelefonnummer.Text = kund.telefonnummer;
+                    txtbAdress.Text = kund.adress; 
+                    txtbLosenord.Text = kund.losenord;
 
                     break;
 
@@ -217,27 +217,24 @@ namespace GruppProjekt
 
         }
        
-        private void gridPersonal_SelectionChanged_1(object sender, EventArgs e)
-        {
-            ValjPersonal();
-        }
 
 
 
 
-        //Metod för att Radera personal 
 
-        public void RaderaPersonal()
+        //Metod för att Radera kunder
+
+        public void RaderaKunder()
         {
             //Kontrollera att vi har en markerad rad i grid
-            if (gridPersonal.SelectedRows.Count != 1) return;
+            if (gridKunder.SelectedRows.Count != 1) return;
 
             //Hämta data från grid
-            DataGridViewSelectedRowCollection row = gridPersonal.SelectedRows;
+            DataGridViewSelectedRowCollection row = gridKunder.SelectedRows;
             int id = Convert.ToInt32(row[0].Cells[0].Value);
 
             //Skapar en SQL Querry
-            string SqlQuerry = $"CALL raderaPersonal({id});";
+            string SqlQuerry = $"CALL raderaKunder({id});";
 
             //MySqlCommand
             MySqlCommand cmd = new MySqlCommand(SqlQuerry, conn);
@@ -258,31 +255,31 @@ namespace GruppProjekt
             }
 
             //Hämta den nya datan
-            VisaPersonal();
+            VisaKunder();
         }
 
-        //Knapp för att radera personal 
+        //Knapp för att radera kunder
         private void btnRadera_Click(object sender, EventArgs e)
         {
-            RaderaPersonal();
+            RaderaKunder();
         }
 
         private void btnVisa_Click(object sender, EventArgs e)
         {
-            VisaPersonal();
+            VisaKunder();
         }
 
 
 
-        //Metoder för att Ändra personal 
+        //Metoder för att Ändra kunder
 
-        private void AndraPersonal()
+        private void AndraKunder()
         {
             //Kontrollera att vi har en markerad rad i grid
-            if (gridPersonal.SelectedRows.Count != 1) return;
+            if (gridKunder.SelectedRows.Count != 1) return;
 
             //Hämta data från grid
-            DataGridViewSelectedRowCollection row = gridPersonal.SelectedRows;
+            DataGridViewSelectedRowCollection row = gridKunder.SelectedRows;
             int id = Convert.ToInt32(row[0].Cells[0].Value);
 
             //hämta värden från txtfält
@@ -292,7 +289,7 @@ namespace GruppProjekt
             string losenord = txtbLosenord.Text;
            
             //Skapar en SQL Querry
-            string SqlQuerry = $"CALL andraPersonal( {id}, '{namn}', '{telefonnummer}', '{adress}', '{losenord}');";
+            string SqlQuerry = $"CALL andraKunder( {id}, '{namn}', '{telefonnummer}', '{adress}', '{losenord}');";
 
             //MySqlCommand
             MySqlCommand cmd = new MySqlCommand(SqlQuerry, conn);
@@ -313,16 +310,19 @@ namespace GruppProjekt
             }
 
             //Hämta den nya datan
-            VisaPersonal();
+            VisaKunder();
         }
 
-        //Knapp för att ändra personal 
+        //Knapp för att ändra kunder 
         private void btnAndra_Click(object sender, EventArgs e)
         {
-            AndraPersonal();
+            AndraKunder();
         }
 
-      
+        private void gridKunder_SelectionChanged(object sender, EventArgs e)
+        {
+            ValjKund();
+        }
     }
 
 
