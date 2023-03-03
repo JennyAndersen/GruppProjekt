@@ -110,17 +110,17 @@
             // lblAntal
             // 
             this.lblAntal.AutoSize = true;
-            this.lblAntal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblAntal.Location = new System.Drawing.Point(589, 154);
+            this.lblAntal.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAntal.Location = new System.Drawing.Point(601, 156);
             this.lblAntal.Name = "lblAntal";
-            this.lblAntal.Size = new System.Drawing.Size(51, 20);
+            this.lblAntal.Size = new System.Drawing.Size(45, 18);
             this.lblAntal.TabIndex = 40;
             this.lblAntal.Text = "Antal";
             // 
             // btnVisaProdukt
             // 
             this.btnVisaProdukt.BackColor = System.Drawing.Color.LightGreen;
-            this.btnVisaProdukt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisaProdukt.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVisaProdukt.Location = new System.Drawing.Point(126, 214);
             this.btnVisaProdukt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnVisaProdukt.Name = "btnVisaProdukt";
@@ -133,7 +133,7 @@
             // btnRaderaProdukt
             // 
             this.btnRaderaProdukt.BackColor = System.Drawing.Color.LightGreen;
-            this.btnRaderaProdukt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRaderaProdukt.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRaderaProdukt.Location = new System.Drawing.Point(602, 213);
             this.btnRaderaProdukt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRaderaProdukt.Name = "btnRaderaProdukt";
@@ -146,7 +146,7 @@
             // btnAndraProdukt
             // 
             this.btnAndraProdukt.BackColor = System.Drawing.Color.LightGreen;
-            this.btnAndraProdukt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAndraProdukt.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAndraProdukt.Location = new System.Drawing.Point(441, 214);
             this.btnAndraProdukt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAndraProdukt.Name = "btnAndraProdukt";
@@ -159,7 +159,7 @@
             // btnSparaProdukt
             // 
             this.btnSparaProdukt.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSparaProdukt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSparaProdukt.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSparaProdukt.Location = new System.Drawing.Point(280, 214);
             this.btnSparaProdukt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSparaProdukt.Name = "btnSparaProdukt";
@@ -204,40 +204,40 @@
             // lblKategori
             // 
             this.lblKategori.AutoSize = true;
-            this.lblKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblKategori.Location = new System.Drawing.Point(790, 154);
+            this.lblKategori.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKategori.Location = new System.Drawing.Point(802, 156);
             this.lblKategori.Name = "lblKategori";
-            this.lblKategori.Size = new System.Drawing.Size(119, 20);
+            this.lblKategori.Size = new System.Drawing.Size(108, 18);
             this.lblKategori.TabIndex = 32;
             this.lblKategori.Text = "Matvarugrupp";
             // 
             // lblAdress
             // 
             this.lblAdress.AutoSize = true;
-            this.lblAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblAdress.Location = new System.Drawing.Point(401, 154);
+            this.lblAdress.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdress.Location = new System.Drawing.Point(413, 156);
             this.lblAdress.Name = "lblAdress";
-            this.lblAdress.Size = new System.Drawing.Size(39, 20);
+            this.lblAdress.Size = new System.Drawing.Size(35, 18);
             this.lblAdress.TabIndex = 31;
             this.lblAdress.Text = "Pris";
             // 
             // lblTelefonnummer
             // 
             this.lblTelefonnummer.AutoSize = true;
-            this.lblTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblTelefonnummer.Location = new System.Drawing.Point(208, 154);
+            this.lblTelefonnummer.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefonnummer.Location = new System.Drawing.Point(220, 156);
             this.lblTelefonnummer.Name = "lblTelefonnummer";
-            this.lblTelefonnummer.Size = new System.Drawing.Size(58, 20);
+            this.lblTelefonnummer.Size = new System.Drawing.Size(54, 18);
             this.lblTelefonnummer.TabIndex = 30;
             this.lblTelefonnummer.Text = "Märke";
             // 
             // lblNamn
             // 
             this.lblNamn.AutoSize = true;
-            this.lblNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblNamn.Location = new System.Drawing.Point(14, 154);
+            this.lblNamn.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNamn.Location = new System.Drawing.Point(26, 156);
             this.lblNamn.Name = "lblNamn";
-            this.lblNamn.Size = new System.Drawing.Size(115, 20);
+            this.lblNamn.Size = new System.Drawing.Size(104, 18);
             this.lblNamn.TabIndex = 29;
             this.lblNamn.Text = "Produktnamn";
             // 
@@ -281,20 +281,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(588, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 29);
+            this.label2.Size = new System.Drawing.Size(114, 27);
             this.label2.TabIndex = 24;
             this.label2.Text = "Produkter";
             // 
             // lblKunder
             // 
             this.lblKunder.AutoSize = true;
-            this.lblKunder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblKunder.Location = new System.Drawing.Point(325, 21);
+            this.lblKunder.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKunder.Location = new System.Drawing.Point(330, 28);
             this.lblKunder.Name = "lblKunder";
-            this.lblKunder.Size = new System.Drawing.Size(97, 29);
+            this.lblKunder.Size = new System.Drawing.Size(86, 27);
             this.lblKunder.TabIndex = 23;
             this.lblKunder.Text = "Kunder";
             // 

@@ -144,7 +144,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.LightGreen;
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F);
-            this.panel2.Location = new System.Drawing.Point(330, 53);
+            this.panel2.Location = new System.Drawing.Point(330, 60);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(112, 4);
             this.panel2.TabIndex = 19;
@@ -227,40 +227,40 @@
             // lblLosenord
             // 
             this.lblLosenord.AutoSize = true;
-            this.lblLosenord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblLosenord.Location = new System.Drawing.Point(601, 136);
+            this.lblLosenord.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLosenord.Location = new System.Drawing.Point(612, 138);
             this.lblLosenord.Name = "lblLosenord";
-            this.lblLosenord.Size = new System.Drawing.Size(84, 20);
+            this.lblLosenord.Size = new System.Drawing.Size(73, 18);
             this.lblLosenord.TabIndex = 10;
             this.lblLosenord.Text = "Lösenord";
             // 
             // lblAdress
             // 
             this.lblAdress.AutoSize = true;
-            this.lblAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblAdress.Location = new System.Drawing.Point(401, 136);
+            this.lblAdress.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdress.Location = new System.Drawing.Point(412, 138);
             this.lblAdress.Name = "lblAdress";
-            this.lblAdress.Size = new System.Drawing.Size(65, 20);
+            this.lblAdress.Size = new System.Drawing.Size(56, 18);
             this.lblAdress.TabIndex = 9;
             this.lblAdress.Text = "Adress";
             // 
             // lblTelefonnummer
             // 
             this.lblTelefonnummer.AutoSize = true;
-            this.lblTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblTelefonnummer.Location = new System.Drawing.Point(208, 136);
+            this.lblTelefonnummer.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefonnummer.Location = new System.Drawing.Point(219, 138);
             this.lblTelefonnummer.Name = "lblTelefonnummer";
-            this.lblTelefonnummer.Size = new System.Drawing.Size(133, 20);
+            this.lblTelefonnummer.Size = new System.Drawing.Size(120, 18);
             this.lblTelefonnummer.TabIndex = 8;
             this.lblTelefonnummer.Text = "Telefonnummer";
             // 
             // lblNamn
             // 
             this.lblNamn.AutoSize = true;
-            this.lblNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblNamn.Location = new System.Drawing.Point(14, 136);
+            this.lblNamn.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNamn.Location = new System.Drawing.Point(25, 138);
             this.lblNamn.Name = "lblNamn";
-            this.lblNamn.Size = new System.Drawing.Size(55, 20);
+            this.lblNamn.Size = new System.Drawing.Size(53, 18);
             this.lblNamn.TabIndex = 7;
             this.lblNamn.Text = "Namn";
             // 
@@ -275,20 +275,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(588, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 29);
+            this.label2.Size = new System.Drawing.Size(114, 27);
             this.label2.TabIndex = 5;
             this.label2.Text = "Produkter";
             // 
             // lblKunder
             // 
             this.lblKunder.AutoSize = true;
-            this.lblKunder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblKunder.Location = new System.Drawing.Point(325, 21);
+            this.lblKunder.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKunder.Location = new System.Drawing.Point(325, 28);
             this.lblKunder.Name = "lblKunder";
-            this.lblKunder.Size = new System.Drawing.Size(97, 29);
+            this.lblKunder.Size = new System.Drawing.Size(86, 27);
             this.lblKunder.TabIndex = 4;
             this.lblKunder.Text = "Kunder";
             // 

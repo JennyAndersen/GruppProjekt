@@ -90,6 +90,12 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bestallning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bestallning.Designer.cs">
+      <DependentUpon>Bestallning.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dbconnection.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -115,6 +121,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bestallning.resx">
+      <DependentUpon>Bestallning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
