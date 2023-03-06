@@ -28,8 +28,8 @@ namespace GruppProjekt
             string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};";
             conn = new MySqlConnection(connString);
 
-            VisaProdukter(); 
-
+            VisaProdukter();
+            Varukorgen();
         }
 
         public void VisaProdukter(string keyword = "")
@@ -87,9 +87,41 @@ namespace GruppProjekt
                 MessageBox.Show(e.Message);
             }
 
-            //Enabla knapp för update och delet 
         }
 
+        private void Varukorgen()
+        {
+            //Skapa en SQL Querry 
+            string sqlQuerry = $"SELECT * FROM varukorgen";
+
+            //skapa ett MySqlCommand object
+            MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
+
+            //exekvera qyerry mot DB. Få data tillbaka 
+            try
+            {
+                //Öppna koppling till DB 
+                conn.Open();
+
+                //Exekvera cmd
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                //Placera data i en datatable objekt
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+
+                //koppla Dt objekt som datasource till grid 
+                gridVarukorg.DataSource = dt;
+
+                //Stänga koppling till DB 
+                conn.Close();
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
 
 
 

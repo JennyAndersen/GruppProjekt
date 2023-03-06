@@ -44,6 +44,7 @@
             this.txtbProduktnamn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVarukorg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProdukter)).BeginInit();
@@ -53,6 +54,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGreen;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnBetalning);
             this.panel1.Controls.Add(this.gridVarukorg);
             this.panel1.Controls.Add(this.label6);
@@ -74,7 +76,7 @@
             // btnBetalning
             // 
             this.btnBetalning.Font = new System.Drawing.Font("Garamond", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBetalning.Location = new System.Drawing.Point(659, 520);
+            this.btnBetalning.Location = new System.Drawing.Point(742, 549);
             this.btnBetalning.Name = "btnBetalning";
             this.btnBetalning.Size = new System.Drawing.Size(194, 73);
             this.btnBetalning.TabIndex = 39;
@@ -88,14 +90,14 @@
             this.gridVarukorg.Name = "gridVarukorg";
             this.gridVarukorg.RowHeadersWidth = 62;
             this.gridVarukorg.RowTemplate.Height = 28;
-            this.gridVarukorg.Size = new System.Drawing.Size(361, 359);
+            this.gridVarukorg.Size = new System.Drawing.Size(361, 391);
             this.gridVarukorg.TabIndex = 38;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Garamond", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(667, 19);
+            this.label6.Location = new System.Drawing.Point(658, 47);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(159, 40);
             this.label6.TabIndex = 37;
@@ -104,7 +106,7 @@
             // gridProdukter
             // 
             this.gridProdukter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProdukter.Location = new System.Drawing.Point(64, 247);
+            this.gridProdukter.Location = new System.Drawing.Point(63, 253);
             this.gridProdukter.Name = "gridProdukter";
             this.gridProdukter.RowHeadersWidth = 62;
             this.gridProdukter.RowTemplate.Height = 28;
@@ -188,7 +190,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Garamond", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(188, 19);
+            this.label2.Location = new System.Drawing.Point(179, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(188, 40);
             this.label2.TabIndex = 27;
@@ -203,6 +205,16 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Garamond", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(338, 466);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(162, 58);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "Lägg till i varukorg";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Bestallning
             // 
@@ -242,5 +254,6 @@
         private System.Windows.Forms.TextBox txtbProduktnamn;
         private System.Windows.Forms.Button btnBetalning;
         private System.Windows.Forms.DataGridView gridVarukorg;
+        private System.Windows.Forms.Button button1;
     }
 }
