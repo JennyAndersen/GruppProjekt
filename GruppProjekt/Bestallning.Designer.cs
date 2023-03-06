@@ -30,46 +30,66 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bestallning));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBetalning = new System.Windows.Forms.Button();
+            this.gridVarukorg = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridProdukter = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbKvantitet = new System.Windows.Forms.TextBox();
+            this.txtbPris = new System.Windows.Forms.TextBox();
+            this.txtbKommentar = new System.Windows.Forms.TextBox();
+            this.txtbProduktnamn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridVarukorg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProdukter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGreen;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Controls.Add(this.btnBetalning);
+            this.panel1.Controls.Add(this.gridVarukorg);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.gridProdukter);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtbKvantitet);
+            this.panel1.Controls.Add(this.txtbPris);
+            this.panel1.Controls.Add(this.txtbKommentar);
+            this.panel1.Controls.Add(this.txtbProduktnamn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(-17, -10);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(986, 641);
             this.panel1.TabIndex = 1;
+            // 
+            // btnBetalning
+            // 
+            this.btnBetalning.Font = new System.Drawing.Font("Garamond", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBetalning.Location = new System.Drawing.Point(659, 520);
+            this.btnBetalning.Name = "btnBetalning";
+            this.btnBetalning.Size = new System.Drawing.Size(194, 73);
+            this.btnBetalning.TabIndex = 39;
+            this.btnBetalning.Text = "Vidare till betalning";
+            this.btnBetalning.UseVisualStyleBackColor = true;
+            // 
+            // gridVarukorg
+            // 
+            this.gridVarukorg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridVarukorg.Location = new System.Drawing.Point(575, 133);
+            this.gridVarukorg.Name = "gridVarukorg";
+            this.gridVarukorg.RowHeadersWidth = 62;
+            this.gridVarukorg.RowTemplate.Height = 28;
+            this.gridVarukorg.Size = new System.Drawing.Size(361, 359);
+            this.gridVarukorg.TabIndex = 38;
             // 
             // label6
             // 
@@ -81,15 +101,15 @@
             this.label6.TabIndex = 37;
             this.label6.Text = "Varukorg";
             // 
-            // dataGridView1
+            // gridProdukter
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(64, 247);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(437, 201);
-            this.dataGridView1.TabIndex = 36;
+            this.gridProdukter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProdukter.Location = new System.Drawing.Point(64, 247);
+            this.gridProdukter.Name = "gridProdukter";
+            this.gridProdukter.RowHeadersWidth = 62;
+            this.gridProdukter.RowTemplate.Height = 28;
+            this.gridProdukter.Size = new System.Drawing.Size(437, 201);
+            this.gridProdukter.TabIndex = 36;
             // 
             // label5
             // 
@@ -131,38 +151,38 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "Produktnamn";
             // 
-            // textBox4
+            // txtbKvantitet
             // 
-            this.textBox4.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(185, 155);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(115, 28);
-            this.textBox4.TabIndex = 31;
+            this.txtbKvantitet.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbKvantitet.Location = new System.Drawing.Point(185, 155);
+            this.txtbKvantitet.Name = "txtbKvantitet";
+            this.txtbKvantitet.Size = new System.Drawing.Size(115, 28);
+            this.txtbKvantitet.TabIndex = 31;
             // 
-            // textBox3
+            // txtbPris
             // 
-            this.textBox3.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(63, 209);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(101, 28);
-            this.textBox3.TabIndex = 30;
+            this.txtbPris.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbPris.Location = new System.Drawing.Point(63, 209);
+            this.txtbPris.Name = "txtbPris";
+            this.txtbPris.Size = new System.Drawing.Size(101, 28);
+            this.txtbPris.TabIndex = 30;
             // 
-            // textBox2
+            // txtbKommentar
             // 
-            this.textBox2.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(330, 155);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(165, 77);
-            this.textBox2.TabIndex = 29;
+            this.txtbKommentar.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbKommentar.Location = new System.Drawing.Point(330, 155);
+            this.txtbKommentar.Multiline = true;
+            this.txtbKommentar.Name = "txtbKommentar";
+            this.txtbKommentar.Size = new System.Drawing.Size(165, 77);
+            this.txtbKommentar.TabIndex = 29;
             // 
-            // textBox1
+            // txtbProduktnamn
             // 
-            this.textBox1.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(63, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(101, 28);
-            this.textBox1.TabIndex = 28;
+            this.txtbProduktnamn.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbProduktnamn.Location = new System.Drawing.Point(63, 155);
+            this.txtbProduktnamn.Name = "txtbProduktnamn";
+            this.txtbProduktnamn.Size = new System.Drawing.Size(101, 28);
+            this.txtbProduktnamn.TabIndex = 28;
             // 
             // label2
             // 
@@ -184,26 +204,6 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(575, 133);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(361, 359);
-            this.dataGridView2.TabIndex = 38;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Garamond", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(659, 520);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(194, 73);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Vidare till betalning";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Bestallning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -218,9 +218,9 @@
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridVarukorg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProdukter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,16 +231,16 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridProdukter;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox txtbKvantitet;
+        private System.Windows.Forms.TextBox txtbPris;
+        private System.Windows.Forms.TextBox txtbKommentar;
+        private System.Windows.Forms.TextBox txtbProduktnamn;
+        private System.Windows.Forms.Button btnBetalning;
+        private System.Windows.Forms.DataGridView gridVarukorg;
     }
 }

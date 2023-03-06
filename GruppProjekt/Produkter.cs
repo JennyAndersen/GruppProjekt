@@ -25,7 +25,7 @@ namespace GruppProjekt
         {
             InitializeComponent();
 
-            //Bygger upp MysqlConnection  objekt för Admin 
+            //Bygger upp MysqlConnection  objekt för Produkter
             string server = "localhost";
             string database = "grupprojekt";
             string user = "root";
