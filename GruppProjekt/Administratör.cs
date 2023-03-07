@@ -24,6 +24,12 @@ namespace GruppProjekt
                 Admin admin = new Admin();
                 admin.Show();
                 this.Hide();
+            } else if (txtLösenordAdmin.Text == "")
+            {
+                MessageBox.Show("Vänligen skriv in lösenord.");
+            } else
+            {
+                MessageBox.Show("Fel lösenord. Vänligen försök igen.");
             }
         }
 
