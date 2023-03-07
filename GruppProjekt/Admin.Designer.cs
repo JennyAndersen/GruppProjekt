@@ -51,16 +51,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblKunder = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picExit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKunder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.picExit);
             this.panel1.Controls.Add(this.btnVisa);
             this.panel1.Controls.Add(this.txtbSok);
             this.panel1.Controls.Add(this.btnSokKund);
@@ -103,7 +106,7 @@
             // txtbSok
             // 
             this.txtbSok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbSok.Location = new System.Drawing.Point(866, 232);
+            this.txtbSok.Location = new System.Drawing.Point(674, 232);
             this.txtbSok.Name = "txtbSok";
             this.txtbSok.Size = new System.Drawing.Size(175, 26);
             this.txtbSok.TabIndex = 23;
@@ -112,7 +115,7 @@
             // 
             this.btnSokKund.BackColor = System.Drawing.Color.LightGreen;
             this.btnSokKund.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSokKund.Location = new System.Drawing.Point(1048, 220);
+            this.btnSokKund.Location = new System.Drawing.Point(856, 220);
             this.btnSokKund.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSokKund.Name = "btnSokKund";
             this.btnSokKund.Size = new System.Drawing.Size(153, 49);
@@ -157,7 +160,7 @@
             this.gridKunder.Name = "gridKunder";
             this.gridKunder.RowHeadersWidth = 62;
             this.gridKunder.RowTemplate.Height = 28;
-            this.gridKunder.Size = new System.Drawing.Size(1183, 329);
+            this.gridKunder.Size = new System.Drawing.Size(904, 329);
             this.gridKunder.TabIndex = 18;
             this.gridKunder.SelectionChanged += new System.EventHandler(this.gridKunder_SelectionChanged);
             // 
@@ -295,12 +298,23 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(972, -43);
+            this.pictureBox1.Location = new System.Drawing.Point(957, 389);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(244, 217);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(1116, 0);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(100, 90);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 25;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // Admin
             // 
@@ -320,6 +334,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKunder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -348,5 +363,6 @@
         private System.Windows.Forms.TextBox txtbSok;
         private System.Windows.Forms.Button btnSokKund;
         private System.Windows.Forms.Button btnVisa;
+        private System.Windows.Forms.PictureBox picExit;
     }
 }

@@ -51,16 +51,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblKunder = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picExit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProdukter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.picExit);
             this.panel1.Controls.Add(this.gridProdukter);
             this.panel1.Controls.Add(this.txtbAntal);
             this.panel1.Controls.Add(this.lblAntal);
@@ -95,7 +98,7 @@
             this.gridProdukter.Name = "gridProdukter";
             this.gridProdukter.RowHeadersWidth = 62;
             this.gridProdukter.RowTemplate.Height = 28;
-            this.gridProdukter.Size = new System.Drawing.Size(1171, 289);
+            this.gridProdukter.Size = new System.Drawing.Size(861, 289);
             this.gridProdukter.TabIndex = 42;
             this.gridProdukter.SelectionChanged += new System.EventHandler(this.gridProdukter_SelectionChanged);
             // 
@@ -301,12 +304,23 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(975, -36);
+            this.pictureBox1.Location = new System.Drawing.Point(956, 386);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(244, 217);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
+            // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(1116, 0);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(100, 90);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 43;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // Produkter
             // 
@@ -326,6 +340,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -354,5 +369,6 @@
         private System.Windows.Forms.Button btnRaderaProdukt;
         private System.Windows.Forms.Button btnAndraProdukt;
         private System.Windows.Forms.Button btnSparaProdukt;
+        private System.Windows.Forms.PictureBox picExit;
     }
 }
