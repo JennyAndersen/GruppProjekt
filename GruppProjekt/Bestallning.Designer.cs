@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bestallning));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnBetalning = new System.Windows.Forms.Button();
             this.gridVarukorg = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.txtbProduktnamn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVarukorg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProdukter)).BeginInit();
@@ -72,6 +72,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(986, 641);
             this.panel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Garamond", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(338, 466);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(162, 71);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "Lägg till i varukorg";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // btnBetalning
             // 
@@ -205,16 +215,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Garamond", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(338, 466);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 58);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "Lägg till i varukorg";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Bestallning
             // 
