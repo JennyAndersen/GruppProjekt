@@ -167,6 +167,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoggaIn";
             this.Text = "LoggaIn";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
