@@ -72,5 +72,10 @@ namespace GruppProjekt
         {
             MessageBox.Show("Hej och Välkommen kära kund! Vänligen kontakta kundtjänst för ett inlogg på kundtjanst@kampholludvig.se.");
         }
+
+        private void picExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoggaIn));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtAnvändarnamn = new System.Windows.Forms.TextBox();
             this.txtLösenord = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,8 +38,9 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.btnNyKund = new System.Windows.Forms.Button();
+            this.picExit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -52,16 +52,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(710, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(78, 65);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // txtAnvändarnamn
             // 
@@ -149,6 +139,17 @@
             this.btnNyKund.UseVisualStyleBackColor = true;
             this.btnNyKund.Click += new System.EventHandler(this.btnNyKund_Click);
             // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(713, -1);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(100, 90);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 26;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
+            // 
             // LoggaIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -156,6 +157,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(813, 477);
+            this.Controls.Add(this.picExit);
             this.Controls.Add(this.btnNyKund);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnLogin);
@@ -164,14 +166,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLösenord);
             this.Controls.Add(this.txtAnvändarnamn);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoggaIn";
             this.Text = "LoggaIn";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,7 +181,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txtAnvändarnamn;
         private System.Windows.Forms.TextBox txtLösenord;
         private System.Windows.Forms.Label label1;
@@ -189,5 +189,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button btnNyKund;
+        private System.Windows.Forms.PictureBox picExit;
     }
 }
