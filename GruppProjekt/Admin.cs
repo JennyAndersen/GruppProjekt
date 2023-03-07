@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GruppProjekt
