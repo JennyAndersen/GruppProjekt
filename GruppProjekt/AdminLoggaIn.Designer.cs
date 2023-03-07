@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminLoggaIn));
             this.picExit = new System.Windows.Forms.PictureBox();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnLoginAdmin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtLösenord = new System.Windows.Forms.TextBox();
-            this.txtAnvändarnamn = new System.Windows.Forms.TextBox();
+            this.txtLösenordAdmin = new System.Windows.Forms.TextBox();
+            this.txtAnvändarnamnAdmin = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -44,23 +44,25 @@
             // picExit
             // 
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(701, -10);
+            this.picExit.Location = new System.Drawing.Point(700, 1);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(100, 90);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picExit.TabIndex = 34;
             this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
-            // btnLogin
+            // btnLoginAdmin
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(366, 279);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(153, 49);
-            this.btnLogin.TabIndex = 33;
-            this.btnLogin.Text = "Logga in";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLoginAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoginAdmin.Location = new System.Drawing.Point(366, 279);
+            this.btnLoginAdmin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLoginAdmin.Name = "btnLoginAdmin";
+            this.btnLoginAdmin.Size = new System.Drawing.Size(153, 49);
+            this.btnLoginAdmin.TabIndex = 33;
+            this.btnLoginAdmin.Text = "Logga in";
+            this.btnLoginAdmin.UseVisualStyleBackColor = true;
+            this.btnLoginAdmin.Click += new System.EventHandler(this.btnLoginAdmin_Click);
             // 
             // label3
             // 
@@ -91,24 +93,23 @@
             this.label1.Size = new System.Drawing.Size(256, 55);
             this.label1.TabIndex = 32;
             this.label1.Text = "Inloggning";
-            
             // 
-            // txtLösenord
+            // txtLösenordAdmin
             // 
-            this.txtLösenord.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLösenord.Location = new System.Drawing.Point(322, 208);
-            this.txtLösenord.Name = "txtLösenord";
-            this.txtLösenord.PasswordChar = '*';
-            this.txtLösenord.Size = new System.Drawing.Size(260, 39);
-            this.txtLösenord.TabIndex = 28;
+            this.txtLösenordAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLösenordAdmin.Location = new System.Drawing.Point(322, 208);
+            this.txtLösenordAdmin.Name = "txtLösenordAdmin";
+            this.txtLösenordAdmin.PasswordChar = '*';
+            this.txtLösenordAdmin.Size = new System.Drawing.Size(260, 39);
+            this.txtLösenordAdmin.TabIndex = 28;
             // 
-            // txtAnvändarnamn
+            // txtAnvändarnamnAdmin
             // 
-            this.txtAnvändarnamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnvändarnamn.Location = new System.Drawing.Point(322, 143);
-            this.txtAnvändarnamn.Name = "txtAnvändarnamn";
-            this.txtAnvändarnamn.Size = new System.Drawing.Size(260, 39);
-            this.txtAnvändarnamn.TabIndex = 29;
+            this.txtAnvändarnamnAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAnvändarnamnAdmin.Location = new System.Drawing.Point(322, 143);
+            this.txtAnvändarnamnAdmin.Name = "txtAnvändarnamnAdmin";
+            this.txtAnvändarnamnAdmin.Size = new System.Drawing.Size(260, 39);
+            this.txtAnvändarnamnAdmin.TabIndex = 29;
             // 
             // pictureBox1
             // 
@@ -127,12 +128,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.picExit);
-            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnLoginAdmin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtLösenord);
-            this.Controls.Add(this.txtAnvändarnamn);
+            this.Controls.Add(this.txtLösenordAdmin);
+            this.Controls.Add(this.txtAnvändarnamnAdmin);
             this.Controls.Add(this.pictureBox1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -149,12 +150,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox picExit;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnLoginAdmin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtLösenord;
-        private System.Windows.Forms.TextBox txtAnvändarnamn;
+        private System.Windows.Forms.TextBox txtLösenordAdmin;
+        private System.Windows.Forms.TextBox txtAnvändarnamnAdmin;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -14,9 +14,34 @@ namespace GruppProjekt
     {
         public AdminLoggaIn()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
-       
+        private void picExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnLoginAdmin_Click(object sender, EventArgs e)
+        {
+            if (txtAnvändarnamnAdmin.Text == "")
+            {
+            MessageBox.Show("Vänligen skriv in användarnamn");
+            }
+            else if (txtLösenordAdmin.Text == "")
+            {
+             MessageBox.Show("Vänligen skriv in lösenord"); 
+            }  
+            else if (txtAnvändarnamnAdmin.Text == "Admin" && txtLösenordAdmin.Text == "Losen123!")
+            {
+                this.Hide();
+                Form admin = new Admin(); 
+                admin.Show();
+            }
+
+            
+            
+
+        }
     }
 }
