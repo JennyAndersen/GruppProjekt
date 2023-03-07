@@ -39,7 +39,6 @@ namespace GruppProjekt
                 Dbconnection dbconnection = new Dbconnection();
                 dbconnection.kundLogin();
 
-                MessageBox.Show($"{Dbconnection.användarnamnDb}");
 
 
                 if (användarnamn == Dbconnection.användarnamnDb && lösenord == Dbconnection.lösenordDb)

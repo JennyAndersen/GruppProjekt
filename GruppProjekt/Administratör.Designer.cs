@@ -29,27 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administratör));
-            this.picExit = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLösenord = new System.Windows.Forms.TextBox();
+            this.picExit = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picExit
-            // 
-            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(471, 2);
-            this.picExit.Margin = new System.Windows.Forms.Padding(2);
-            this.picExit.Name = "picExit";
-            this.picExit.Size = new System.Drawing.Size(67, 58);
-            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picExit.TabIndex = 32;
-            this.picExit.TabStop = false;
-            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // btnLogin
             // 
@@ -94,6 +82,18 @@
             this.txtLösenord.Size = new System.Drawing.Size(175, 29);
             this.txtLösenord.TabIndex = 28;
             // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(471, 2);
+            this.picExit.Margin = new System.Windows.Forms.Padding(2);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(67, 58);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 33;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -102,7 +102,7 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(186, 168);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
             // Administratör
@@ -112,11 +112,11 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(542, 310);
             this.Controls.Add(this.picExit);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLösenord);
-            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Administratör";
             this.Text = "Administratör";
@@ -128,12 +128,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox picExit;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtLösenord;
+        private System.Windows.Forms.PictureBox picExit;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

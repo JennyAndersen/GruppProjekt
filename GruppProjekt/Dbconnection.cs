@@ -30,7 +30,6 @@ namespace GruppProjekt
 
         public void kundLogin()
         {
-            MessageBox.Show($"{LoggaIn.användarnamn}");
             LoggaIn loggaIn = new LoggaIn();
             string query = "grupprojekt.Kundlogin";
             conn.Open();
@@ -47,7 +46,6 @@ namespace GruppProjekt
                     lösenordDb = reader.GetString(2);
                     kund_id = reader.GetInt32(3);
                     kund_namn = reader.GetString(4);
-                    MessageBox.Show($"{Dbconnection.användarnamnDb}");
                 }
             }
             conn.Close();
