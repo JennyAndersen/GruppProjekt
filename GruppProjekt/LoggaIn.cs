@@ -39,12 +39,14 @@ namespace GruppProjekt
                 Dbconnection dbconnection = new Dbconnection();
                 dbconnection.kundLogin();
 
+                MessageBox.Show($"{Dbconnection.användarnamnDb}");
 
 
                 if (användarnamn == Dbconnection.användarnamnDb && lösenord == Dbconnection.lösenordDb)
                 {
-                    Admin admin = new Admin();
-                    admin.Show();
+                    Bestallning bestallning = new Bestallning();
+
+                    bestallning.Show();
                     this.Hide();
 
                 }
@@ -65,7 +67,10 @@ namespace GruppProjekt
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Administratör administratör = new Administratör();
 
+            administratör.Show();
+            this.Hide();
         }
 
         private void btnNyKund_Click(object sender, EventArgs e)
@@ -75,7 +80,7 @@ namespace GruppProjekt
 
         private void picExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+           Application.Exit();
         }
     }
 }

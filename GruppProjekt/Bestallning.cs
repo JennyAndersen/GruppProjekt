@@ -125,6 +125,8 @@ namespace GruppProjekt
 
         private void picExit_Click(object sender, EventArgs e)
         {
+            LoggaIn loggaIn = new LoggaIn();
+            loggaIn.Show();
             this.Close();
         }
     }
