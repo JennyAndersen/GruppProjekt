@@ -19,9 +19,12 @@ namespace GruppProjekt
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Admin admin = new Admin();
-            admin.Show();
-            this.Hide();
+            if(txtLösenordAdmin.Text == "Losenord123!")
+            {
+                Admin admin = new Admin();
+                admin.Show();
+                this.Hide();
+            }
         }
 
         private void picExit_Click(object sender, EventArgs e)
