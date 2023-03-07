@@ -46,7 +46,6 @@ namespace GruppProjekt
                     lösenordDb = reader.GetString(2);
                     kund_id = reader.GetInt32(3);
                     kund_namn = reader.GetString(4);
-
                 }
             }
             conn.Close();
