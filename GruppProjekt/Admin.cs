@@ -328,6 +328,15 @@ namespace GruppProjekt
         {
             this.Close();
         }
+
+        private void lblProdukter_Click(object sender, EventArgs e)
+        {
+            Produkter produkter = new Produkter();
+
+            produkter.Show();
+
+            this.Close();
+        }
     }
 
 

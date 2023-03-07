@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.picExit = new System.Windows.Forms.PictureBox();
             this.btnVisa = new System.Windows.Forms.Button();
             this.txtbSok = new System.Windows.Forms.TextBox();
             this.btnSokKund = new System.Windows.Forms.Button();
@@ -48,16 +49,15 @@
             this.lblTelefonnummer = new System.Windows.Forms.Label();
             this.lblNamn = new System.Windows.Forms.Label();
             this.txtbNamn = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblProdukter = new System.Windows.Forms.Label();
             this.lblKunder = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.picExit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKunder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,13 +82,24 @@
             this.panel1.Controls.Add(this.lblTelefonnummer);
             this.panel1.Controls.Add(this.lblNamn);
             this.panel1.Controls.Add(this.txtbNamn);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblProdukter);
             this.panel1.Controls.Add(this.lblKunder);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-2, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1219, 624);
             this.panel1.TabIndex = 0;
+            // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(1116, 0);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(100, 90);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 25;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // btnVisa
             // 
@@ -275,15 +286,16 @@
             this.txtbNamn.Size = new System.Drawing.Size(175, 26);
             this.txtbNamn.TabIndex = 6;
             // 
-            // label2
+            // lblProdukter
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(588, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 27);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Produkter";
+            this.lblProdukter.AutoSize = true;
+            this.lblProdukter.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProdukter.Location = new System.Drawing.Point(588, 28);
+            this.lblProdukter.Name = "lblProdukter";
+            this.lblProdukter.Size = new System.Drawing.Size(114, 27);
+            this.lblProdukter.TabIndex = 5;
+            this.lblProdukter.Text = "Produkter";
+            this.lblProdukter.Click += new System.EventHandler(this.lblProdukter_Click);
             // 
             // lblKunder
             // 
@@ -305,17 +317,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // picExit
-            // 
-            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(1116, 0);
-            this.picExit.Name = "picExit";
-            this.picExit.Size = new System.Drawing.Size(100, 90);
-            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picExit.TabIndex = 25;
-            this.picExit.TabStop = false;
-            this.picExit.Click += new System.EventHandler(this.picExit_Click);
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -330,11 +331,11 @@
             this.Text = "Admin";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKunder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -343,7 +344,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblProdukter;
         private System.Windows.Forms.Label lblKunder;
         private System.Windows.Forms.TextBox txtbNamn;
         private System.Windows.Forms.TextBox txtbLosenord;
