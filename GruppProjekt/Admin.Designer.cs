@@ -311,6 +311,7 @@
             this.ClientSize = new System.Drawing.Size(1211, 654);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin";
             this.Text = "Admin";
             this.panel1.ResumeLayout(false);
