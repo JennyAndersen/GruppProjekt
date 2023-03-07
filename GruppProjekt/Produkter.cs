@@ -315,6 +315,16 @@ namespace GruppProjekt
 
         private void picExit_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            this.Close();
+        }
+
+        private void lblKunder_Click(object sender, EventArgs e)
+        {
+            Admin admin = new Admin();
+
+            admin.Show();
+
             this.Close();
         }
     }
