@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Produkter));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.picExit = new System.Windows.Forms.PictureBox();
             this.gridProdukter = new System.Windows.Forms.DataGridView();
             this.txtbAntal = new System.Windows.Forms.TextBox();
             this.lblAntal = new System.Windows.Forms.Label();
@@ -51,13 +52,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblKunder = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.picExit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProdukter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -89,6 +89,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1219, 624);
             this.panel1.TabIndex = 0;
+            // 
+            // picExit
+            // 
+            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
+            this.picExit.Location = new System.Drawing.Point(1116, 0);
+            this.picExit.Name = "picExit";
+            this.picExit.Size = new System.Drawing.Size(100, 90);
+            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExit.TabIndex = 43;
+            this.picExit.TabStop = false;
+            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // gridProdukter
             // 
@@ -300,6 +311,7 @@
             this.lblKunder.Size = new System.Drawing.Size(86, 27);
             this.lblKunder.TabIndex = 23;
             this.lblKunder.Text = "Kunder";
+            this.lblKunder.Click += new System.EventHandler(this.lblKunder_Click);
             // 
             // pictureBox1
             // 
@@ -310,17 +322,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
-            // 
-            // picExit
-            // 
-            this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(1116, 0);
-            this.picExit.Name = "picExit";
-            this.picExit.Size = new System.Drawing.Size(100, 90);
-            this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picExit.TabIndex = 43;
-            this.picExit.TabStop = false;
-            this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
             // Produkter
             // 
@@ -336,11 +337,11 @@
             this.Text = "Produkter";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProdukter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
             this.ResumeLayout(false);
 
         }
