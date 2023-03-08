@@ -14,7 +14,8 @@ namespace GruppProjekt
     public partial class Bestallning : Form
     {
 
-        MySqlConnection conn; 
+        MySqlConnection conn;
+      
 
         public Bestallning()
         {
@@ -61,7 +62,7 @@ namespace GruppProjekt
                 //Ladda Reader på Nytt
                 reader = cmd.ExecuteReader();
 
-                //Tömma personallista 
+                //Tömma produktlista 
                 Produkt.produkt.Clear();
 
                 while (reader.Read())
@@ -73,7 +74,6 @@ namespace GruppProjekt
                     string matvarugrupp = reader["produkter_matvarugrupp"].ToString();
                     decimal pris = Convert.ToDecimal(reader["produkter_pris"]);
                     int antal = Convert.ToInt32(reader["produkter_antal"]);
-
 
                     //Skapa ett personal objekt och spara i den statiska listan 
                     Produkt.produkt.Add(new Produkt(produktid, produktnamn, produktmarke, pris, matvarugrupp, antal));
@@ -92,7 +92,7 @@ namespace GruppProjekt
         private void Varukorgen()
         {
             //Skapa en SQL Querry 
-            string sqlQuerry = $"SELECT * FROM varukorgen";
+            string sqlQuerry = $"SELECT *FROM varukorgen";
 
             //skapa ett MySqlCommand object
             MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
@@ -128,6 +128,57 @@ namespace GruppProjekt
             LoggaIn loggaIn = new LoggaIn();
             loggaIn.Show();
             this.Close();
+        }
+
+        private void btnLaggiVarukorg_Click(object sender, EventArgs e)
+        {
+            LaggiVarukorg();
+        }
+
+        private void gridProdukter_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public void LaggiVarukorg()
+        {
+            //Hämta data från grid
+            DataGridViewSelectedRowCollection row = gridProdukter.SelectedRows;
+            int produktid = Convert.ToInt32(row[0].Cells[0].Value);
+            
+
+            //Hämta textvärden
+            string Kvantitet = Convert.ToString(txtbKvantitet.Text);
+
+           
+
+            //Sqlquerry 
+            string SqlQuerry = $"CALL infogaTillVarukorgen({produktid}, '{Kvantitet}'";
+
+            //sql command
+            MySqlCommand cmd = new MySqlCommand(SqlQuerry, conn);
+
+            try
+            {
+                //öppna koppling till DB 
+                conn.Open();
+
+                //exekverar kommando 
+                cmd.ExecuteReader();
+
+                //stäng koppling till DB 
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+
+            //Uppdatera varukorgen
+            Varukorgen();
+
+            MessageBox.Show("Produkt tillagd!");
         }
     }
 }

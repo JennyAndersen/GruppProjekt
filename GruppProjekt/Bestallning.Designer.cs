@@ -30,18 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bestallning));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLaggiVarukorg = new System.Windows.Forms.Button();
             this.btnBetalning = new System.Windows.Forms.Button();
             this.gridVarukorg = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.gridProdukter = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtbKvantitet = new System.Windows.Forms.TextBox();
             this.txtbPris = new System.Windows.Forms.TextBox();
-            this.txtbKommentar = new System.Windows.Forms.TextBox();
             this.txtbProduktnamn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -56,18 +54,16 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGreen;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnLaggiVarukorg);
             this.panel1.Controls.Add(this.btnBetalning);
             this.panel1.Controls.Add(this.gridVarukorg);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.gridProdukter);
-            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtbKvantitet);
             this.panel1.Controls.Add(this.txtbPris);
-            this.panel1.Controls.Add(this.txtbKommentar);
             this.panel1.Controls.Add(this.txtbProduktnamn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(-17, -10);
@@ -75,15 +71,16 @@
             this.panel1.Size = new System.Drawing.Size(986, 641);
             this.panel1.TabIndex = 1;
             // 
-            // button1
+            // btnLaggiVarukorg
             // 
-            this.button1.Font = new System.Drawing.Font("Garamond", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(338, 466);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 71);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "Lägg till i varukorg";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLaggiVarukorg.Font = new System.Drawing.Font("Garamond", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaggiVarukorg.Location = new System.Drawing.Point(338, 466);
+            this.btnLaggiVarukorg.Name = "btnLaggiVarukorg";
+            this.btnLaggiVarukorg.Size = new System.Drawing.Size(162, 71);
+            this.btnLaggiVarukorg.TabIndex = 40;
+            this.btnLaggiVarukorg.Text = "Lägg till i varukorg";
+            this.btnLaggiVarukorg.UseVisualStyleBackColor = true;
+            this.btnLaggiVarukorg.Click += new System.EventHandler(this.btnLaggiVarukorg_Click);
             // 
             // btnBetalning
             // 
@@ -124,22 +121,13 @@
             this.gridProdukter.RowTemplate.Height = 28;
             this.gridProdukter.Size = new System.Drawing.Size(437, 201);
             this.gridProdukter.TabIndex = 36;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(326, 129);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(198, 21);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "Övrig kommentar till butik";
+            this.gridProdukter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProdukter_CellContentClick);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(181, 129);
+            this.label4.Location = new System.Drawing.Point(371, 186);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 21);
             this.label4.TabIndex = 34;
@@ -168,7 +156,7 @@
             // txtbKvantitet
             // 
             this.txtbKvantitet.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbKvantitet.Location = new System.Drawing.Point(185, 155);
+            this.txtbKvantitet.Location = new System.Drawing.Point(375, 212);
             this.txtbKvantitet.Name = "txtbKvantitet";
             this.txtbKvantitet.Size = new System.Drawing.Size(115, 28);
             this.txtbKvantitet.TabIndex = 31;
@@ -180,15 +168,6 @@
             this.txtbPris.Name = "txtbPris";
             this.txtbPris.Size = new System.Drawing.Size(101, 28);
             this.txtbPris.TabIndex = 30;
-            // 
-            // txtbKommentar
-            // 
-            this.txtbKommentar.Font = new System.Drawing.Font("Garamond", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbKommentar.Location = new System.Drawing.Point(330, 155);
-            this.txtbKommentar.Multiline = true;
-            this.txtbKommentar.Name = "txtbKommentar";
-            this.txtbKommentar.Size = new System.Drawing.Size(165, 77);
-            this.txtbKommentar.TabIndex = 29;
             // 
             // txtbProduktnamn
             // 
@@ -260,17 +239,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView gridProdukter;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtbKvantitet;
         private System.Windows.Forms.TextBox txtbPris;
-        private System.Windows.Forms.TextBox txtbKommentar;
         private System.Windows.Forms.TextBox txtbProduktnamn;
         private System.Windows.Forms.Button btnBetalning;
         private System.Windows.Forms.DataGridView gridVarukorg;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLaggiVarukorg;
         private System.Windows.Forms.PictureBox picExit;
     }
 }
