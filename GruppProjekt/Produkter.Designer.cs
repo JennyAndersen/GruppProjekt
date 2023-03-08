@@ -111,6 +111,7 @@
             this.gridProdukter.RowTemplate.Height = 28;
             this.gridProdukter.Size = new System.Drawing.Size(861, 289);
             this.gridProdukter.TabIndex = 42;
+    
             this.gridProdukter.SelectionChanged += new System.EventHandler(this.gridProdukter_SelectionChanged);
             // 
             // txtbAntal
