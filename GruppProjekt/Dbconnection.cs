@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
+
 namespace GruppProjekt
 {
     internal class Dbconnection
@@ -19,8 +20,6 @@ namespace GruppProjekt
         public static string user = "root";
         public static string pass = "password";
         MySqlConnection conn = new MySqlConnection($"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};");
-
-        
 
         public static int login_id { get; set; }
         public static int kund_id { get; set; }
@@ -47,7 +46,6 @@ namespace GruppProjekt
                     lösenordDb = reader.GetString(2);
                     kund_id = reader.GetInt32(3);
                     kund_namn = reader.GetString(4);
-
                 }
             }
             conn.Close();

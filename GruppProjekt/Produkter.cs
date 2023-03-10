@@ -1,31 +1,31 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
-using MySqlConnector;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GruppProjekt
 {
-    public partial class Admin : Form
 
+   
+
+    public partial class Produkter : Form
     {
-
         MySqlConnection conn;
-        TextBox[] txtBoxesKunder;
+        TextBox[] txtBoxesProdukter;
 
-        public Admin()
+        public Produkter()
         {
             InitializeComponent();
 
-            //Bygger upp MysqlConnection  objekt för Admin 
+            //Bygger upp MysqlConnection  objekt för Produkter
             string server = "localhost";
             string database = "grupprojekt";
             string user = "root";
@@ -33,16 +33,15 @@ namespace GruppProjekt
             string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};";
             conn = new MySqlConnection(connString);
             //Skapar en array ref för input av fälten 
-            txtBoxesKunder = new TextBox[] { txtbNamn, txtbTelefonnummer, txtbAdress, txtbLosenord };
+            txtBoxesProdukter = new TextBox[] { txtbProduktnamn, txtbProduktmarke, txtbPris, txtbAntal };
         }
 
-        //Metod knapp för att spara en anställd 
-        public void SparaKunder()
+        public void SparaProdukter()
         {
-            //validering 
+            //validering
             bool valid = true;
 
-            foreach (TextBox txtBox in txtBoxesKunder)
+            foreach (TextBox txtBox in txtBoxesProdukter)
             {
                 //Trimmar test-innehållet
                 txtBox.Text = txtBox.Text.Trim();
@@ -66,7 +65,7 @@ namespace GruppProjekt
                 MessageBox.Show("Felaktig validering. Kontrollera röda fält.");
                 return;
             }
-            foreach (TextBox txtBox in txtBoxesKunder)
+            foreach (TextBox txtBox in txtBoxesProdukter)
             {
                 //Trimmar test-innehållet
                 txtBox.Text = txtBox.Text.Trim();
@@ -92,13 +91,14 @@ namespace GruppProjekt
             }
 
             //Hämta värdena från textfält 
-            string namn = txtbNamn.Text.ToString();
-            string telefonnummer = txtbTelefonnummer.Text.ToString();
-            string adress = txtbAdress.Text.ToString();
-            string losenord = txtbLosenord.Text.ToString();
+            string produktnamn = txtbProduktnamn.Text.ToString();
+            string produktmarke = txtbProduktmarke.Text.ToString();
+            decimal pris = Convert.ToDecimal(txtbPris.Text);
+            string matvarugrupp = cbMatvarugrupp.Text.ToString();
+            int antal = Convert.ToInt32(txtbAntal.Text);
 
             //Bygg upp SQL Querry 
-            string sqlQuerry = $"CALL sparaKunder('{namn}', '{telefonnummer}', '{adress}', '{losenord}');";
+            string sqlQuerry = $"CALL sparaProdukter('{produktnamn}', '{produktmarke}', '{pris}', '{matvarugrupp}', '{antal}');";
 
             //Skapar ett MySqlCommand objekt 
             MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
@@ -120,25 +120,21 @@ namespace GruppProjekt
                 MessageBox.Show(e.Message);
             }
 
-            VisaKunder();
-            MessageBox.Show("Kund tillagd!");
-
+            VisaProdukter();
+            MessageBox.Show("Produkt är tillagd!");
         }
 
-        //Knapp Spara 
-        private void btnSpara_Click(object sender, EventArgs e)
+        private void btnSparaProdukt_Click(object sender, EventArgs e)
         {
-            SparaKunder();
+            SparaProdukter(); 
         }
 
-
-        //För att visa listan 
-        public void VisaKunder(string keyword = "")
+        public void VisaProdukter(string keyword = "" )
         {
             //Skapa en sql querrry 
             string sqlQuerry;
-            if (keyword == "") sqlQuerry = $"CALL visaKunder();";
-            else sqlQuerry = $"CALL sökKunder('{keyword}');";
+            if (keyword == "") sqlQuerry = $"CALL visaProdukter();";
+            else sqlQuerry = $"CALL sokProdukter('{keyword}');";
 
             //skapa ett objekt av mysqlcommand
             MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
@@ -157,25 +153,27 @@ namespace GruppProjekt
                 dt.Load(reader);
 
                 //Koppla TD objekt som DataSource till Grid
-                gridKunder.DataSource = dt;
+                gridProdukter.DataSource = dt;
 
                 //Ladda Reader på Nytt
                 reader = cmd.ExecuteReader();
 
-                //Tömma kundlista 
-                Kund.kund.Clear();
+                //Tömma personallista 
+                Produkt.produkt.Clear();
 
                 while (reader.Read())
                 {
                     //Hämta och spara data till variablerna 
-                    int id = Convert.ToInt32(reader["kunder_id"]);
-                    string namn = reader["kunder_namn"].ToString();
-                    string telefonnummer = reader["kunder_telefonnummer"].ToString();
-                    string adress = reader["kunder_adress"].ToString();
-                    string losenord = reader["kunder_losenord"].ToString();
+                    int produktid = Convert.ToInt32(reader["produkter_produktid"]);
+                    string produktnamn = reader["produkter_produktnamn"].ToString();
+                    string produktmarke = reader["produkter_produktmarke"].ToString();
+                    string matvarugrupp = reader["produkter_matvarugrupp"].ToString();
+                    decimal pris = Convert.ToDecimal(reader["produkter_pris"]);
+                    int antal = Convert.ToInt32(reader["produkter_antal"]);
 
-                    //Skapa ett kund objekt och spara i den statiska listan 
-                    Kund.kund.Add(new Kund(id, namn, telefonnummer, adress, losenord));
+
+                    //Skapa ett personal objekt och spara i den statiska listan 
+                    Produkt.produkt.Add(new Produkt(produktid, produktnamn, produktmarke, pris, matvarugrupp, antal));
                 }
 
                 //stänga kopplingen till db
@@ -186,29 +184,30 @@ namespace GruppProjekt
                 MessageBox.Show(e.Message);
             }
 
-            //Enabla knapp för Update och Delete
+            //Enabla knapp för update och delet 
         }
 
-        private void ValjKund()
+        private void ValjProdukt()
         {
             //Kontrollera att vi har en markerad rad i grid
-            if (gridKunder.SelectedRows.Count != 1) return;
+            if (gridProdukter.SelectedRows.Count != 1) return;
 
             //Hämta data från grid
-            DataGridViewSelectedRowCollection row = gridKunder.SelectedRows;
-            int id = Convert.ToInt32(row[0].Cells[0].Value);
+            DataGridViewSelectedRowCollection row = gridProdukter.SelectedRows;
+            int produktid = Convert.ToInt32(row[0].Cells[0].Value);
 
             //Skriva in data från grid till formulär
-            foreach (Kund kund in Kund.kund)
+            foreach (Produkt produkt in Produkt.produkt)
             {
                 // Kontrollera ID property
-                if (kund.id == id)
+                if (produkt.produktid == produktid)
                 {
 
-                    txtbNamn.Text = kund.namn; 
-                    txtbTelefonnummer.Text = kund.telefonnummer;
-                    txtbAdress.Text = kund.adress; 
-                    txtbLosenord.Text = kund.losenord;
+                    txtbProduktnamn.Text = produkt.produktnamn;
+                    txtbProduktmarke.Text = produkt.produktmarke;
+                    txtbPris.Text = produkt.pris.ToString();
+                    cbMatvarugrupp.Text = produkt.matvarugrupp;
+                    txtbAntal.Text = produkt.antal.ToString();
 
                     break;
 
@@ -216,25 +215,24 @@ namespace GruppProjekt
             }
 
         }
-       
 
-
-
-
-
-        //Metod för att Radera kunder
-
-        public void RaderaKunder()
+        private void gridProdukter_SelectionChanged(object sender, EventArgs e)
         {
+            ValjProdukt(); 
+        }
+
+        public void RaderaProdukter()
+        {
+
             //Kontrollera att vi har en markerad rad i grid
-            if (gridKunder.SelectedRows.Count != 1) return;
+            if (gridProdukter.SelectedRows.Count != 1) return;
 
             //Hämta data från grid
-            DataGridViewSelectedRowCollection row = gridKunder.SelectedRows;
-            int id = Convert.ToInt32(row[0].Cells[0].Value);
+            DataGridViewSelectedRowCollection row = gridProdukter.SelectedRows;
+            int produktid = Convert.ToInt32(row[0].Cells[0].Value);
 
             //Skapar en SQL Querry
-            string SqlQuerry = $"CALL raderaKunder({id});";
+            string SqlQuerry = $"CALL raderaProdukter({produktid});";
 
             //MySqlCommand
             MySqlCommand cmd = new MySqlCommand(SqlQuerry, conn);
@@ -255,42 +253,39 @@ namespace GruppProjekt
             }
 
             //Hämta den nya datan
-            VisaKunder();
+            VisaProdukter();
         }
 
-        //Knapp för att radera kunder
-        private void btnRadera_Click(object sender, EventArgs e)
+        private void btnRaderaProdukt_Click(object sender, EventArgs e)
         {
-            RaderaKunder();
+            RaderaProdukter();
         }
 
-        private void btnVisa_Click(object sender, EventArgs e)
+        private void btnVisaProdukt_Click(object sender, EventArgs e)
         {
-            VisaKunder();
+            VisaProdukter();
         }
 
-
-
-        //Metoder för att Ändra kunder
-
-        private void AndraKunder()
+        private void AndraProdukter()
         {
             //Kontrollera att vi har en markerad rad i grid
-            if (gridKunder.SelectedRows.Count != 1) return;
+            if (gridProdukter.SelectedRows.Count != 1) return;
 
             //Hämta data från grid
-            DataGridViewSelectedRowCollection row = gridKunder.SelectedRows;
-            int id = Convert.ToInt32(row[0].Cells[0].Value);
+            DataGridViewSelectedRowCollection row = gridProdukter.SelectedRows;
+            int produktid = Convert.ToInt32(row[0].Cells[0].Value);
 
             //hämta värden från txtfält
-            string namn = txtbNamn.Text;
-            string telefonnummer = txtbTelefonnummer.Text;
-            string adress = txtbAdress.Text;
-            string losenord = txtbLosenord.Text;
-           
-            //Skapar en SQL Querry
-            string SqlQuerry = $"CALL andraKunder( {id}, '{namn}', '{telefonnummer}', '{adress}', '{losenord}');";
+            string produktnamn = txtbProduktnamn.Text.ToString();
+            string produktmarke = txtbProduktmarke.Text.ToString();
+            decimal pris = Convert.ToDecimal(txtbPris.Text);
+            string matvarugrupp = cbMatvarugrupp.Text.ToString();
+            int antal = Convert.ToInt32(txtbAntal.Text);
 
+            //Skapar en SQL Querry
+            string SqlQuerry = $"CALL andraProdukter( '{produktid}', '{produktnamn}', '{produktmarke}', '{pris}', '{matvarugrupp}', '{antal}');";
+
+            
             //MySqlCommand
             MySqlCommand cmd = new MySqlCommand(SqlQuerry, conn);
 
@@ -310,41 +305,31 @@ namespace GruppProjekt
             }
 
             //Hämta den nya datan
-            VisaKunder();
+            VisaProdukter();
         }
 
-        //Knapp för att ändra kunder 
-        private void btnAndra_Click(object sender, EventArgs e)
+        private void btnAndraProdukt_Click(object sender, EventArgs e)
         {
-            AndraKunder();
-        }
-
-        private void gridKunder_SelectionChanged(object sender, EventArgs e)
-        {
-            ValjKund();
+            AndraProdukter();
         }
 
         private void picExit_Click(object sender, EventArgs e)
         {
+            this.Hide();
             this.Close();
         }
 
-        private void lblProdukter_Click(object sender, EventArgs e)
+        private void lblKunder_Click(object sender, EventArgs e)
         {
-            Produkter produkter = new Produkter();
+            Admin admin = new Admin();
 
-            produkter.Show();
+            admin.Show();
 
             this.Close();
         }
+
+     
     }
 
 
-
 }
-    
-            
-
-
-
-  
