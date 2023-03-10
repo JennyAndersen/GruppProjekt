@@ -148,12 +148,12 @@ namespace GruppProjekt
             
 
             //Hämta textvärden
-            string Kvantitet = Convert.ToString(txtbKvantitet.Text);
+            string Kvantitet = Convert.ToString(cBKvantitet.Text);
 
            
 
             //Sqlquerry 
-            string SqlQuerry = $"CALL infogaTillVarukorgen({produktid}, '{Kvantitet}'";
+            string SqlQuerry = $"CALL infogaTillVarukorgen({produktid}, {Kvantitet}";
 
             //sql command
             MySqlCommand cmd = new MySqlCommand(SqlQuerry, conn);
@@ -179,6 +179,14 @@ namespace GruppProjekt
             Varukorgen();
 
             MessageBox.Show("Produkt tillagd!");
+        }
+
+        private void cBProduktNamn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dbconnection dbconnection = new Dbconnection();
+            Dbconnection.produktNamn = (string) cBProduktNamn.SelectedItem;
+            dbconnection.visaProdukter();
+            txtbPris.Text = Dbconnection.produktPris;
         }
     }
 }

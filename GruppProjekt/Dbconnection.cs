@@ -27,6 +27,8 @@ namespace GruppProjekt
         public static string lösenordDb { get; set; }
 
         public static string kund_namn { get; set; }
+        public static string produktNamn { get; set; }
+        public static string produktPris { get; set; }
 
         public void kundLogin()
         {
@@ -46,6 +48,24 @@ namespace GruppProjekt
                     lösenordDb = reader.GetString(2);
                     kund_id = reader.GetInt32(3);
                     kund_namn = reader.GetString(4);
+                }
+            }
+            conn.Close();
+        }
+
+        public void visaProdukter()
+        {
+            LoggaIn loggaIn = new LoggaIn();
+            string query = "grupprojekt.visaProdukt";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("$produktNamn", produktNamn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    produktPris = reader.GetString(2);
                 }
             }
             conn.Close();
