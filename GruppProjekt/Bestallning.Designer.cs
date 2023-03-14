@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bestallning));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cBKvantitet = new System.Windows.Forms.ComboBox();
+            this.cBProduktNamn = new System.Windows.Forms.ComboBox();
             this.btnLaggiVarukorg = new System.Windows.Forms.Button();
             this.btnBetalning = new System.Windows.Forms.Button();
             this.gridVarukorg = new System.Windows.Forms.DataGridView();
@@ -42,8 +44,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picExit = new System.Windows.Forms.PictureBox();
-            this.cBProduktNamn = new System.Windows.Forms.ComboBox();
-            this.cBKvantitet = new System.Windows.Forms.ComboBox();
+            this.Produktnamn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pris = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Antal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVarukorg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProdukter)).BeginInit();
@@ -67,16 +70,67 @@
             this.panel1.Controls.Add(this.txtbPris);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(-11, -6);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(657, 417);
             this.panel1.TabIndex = 1;
+            // 
+            // cBKvantitet
+            // 
+            this.cBKvantitet.FormattingEnabled = true;
+            this.cBKvantitet.Items.AddRange(new object[] {
+            "- Välj antal -",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.cBKvantitet.Location = new System.Drawing.Point(250, 138);
+            this.cBKvantitet.Name = "cBKvantitet";
+            this.cBKvantitet.Size = new System.Drawing.Size(83, 21);
+            this.cBKvantitet.TabIndex = 41;
+            this.cBKvantitet.Text = "- Välj antal -";
+            this.cBKvantitet.SelectedIndexChanged += new System.EventHandler(this.cBKvantitet_SelectedIndexChanged);
+            // 
+            // cBProduktNamn
+            // 
+            this.cBProduktNamn.FormattingEnabled = true;
+            this.cBProduktNamn.Items.AddRange(new object[] {
+            "- Välj Produkt -",
+            "Havregryn",
+            "Yoghurt",
+            "Mjölk",
+            "Vaniljpulver",
+            "Honung",
+            "Havregryn",
+            "Banan",
+            "Ägg",
+            "Bacon",
+            "Spenat",
+            "Tomat",
+            "Avokado",
+            "Smör",
+            "Fralla",
+            "Ättika",
+            "Rödlök",
+            "Socker"});
+            this.cBProduktNamn.Location = new System.Drawing.Point(42, 100);
+            this.cBProduktNamn.Name = "cBProduktNamn";
+            this.cBProduktNamn.Size = new System.Drawing.Size(121, 21);
+            this.cBProduktNamn.TabIndex = 41;
+            this.cBProduktNamn.Text = "- Välj Produkt -";
+            this.cBProduktNamn.SelectedIndexChanged += new System.EventHandler(this.cBProduktNamn_SelectedIndexChanged);
             // 
             // btnLaggiVarukorg
             // 
             this.btnLaggiVarukorg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLaggiVarukorg.Location = new System.Drawing.Point(225, 303);
-            this.btnLaggiVarukorg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLaggiVarukorg.Margin = new System.Windows.Forms.Padding(2);
             this.btnLaggiVarukorg.Name = "btnLaggiVarukorg";
             this.btnLaggiVarukorg.Size = new System.Drawing.Size(108, 46);
             this.btnLaggiVarukorg.TabIndex = 40;
@@ -88,7 +142,7 @@
             // 
             this.btnBetalning.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBetalning.Location = new System.Drawing.Point(495, 357);
-            this.btnBetalning.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBetalning.Margin = new System.Windows.Forms.Padding(2);
             this.btnBetalning.Name = "btnBetalning";
             this.btnBetalning.Size = new System.Drawing.Size(129, 47);
             this.btnBetalning.TabIndex = 39;
@@ -98,8 +152,12 @@
             // gridVarukorg
             // 
             this.gridVarukorg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridVarukorg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Produktnamn,
+            this.Pris,
+            this.Antal});
             this.gridVarukorg.Location = new System.Drawing.Point(383, 86);
-            this.gridVarukorg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridVarukorg.Margin = new System.Windows.Forms.Padding(2);
             this.gridVarukorg.Name = "gridVarukorg";
             this.gridVarukorg.RowHeadersWidth = 62;
             this.gridVarukorg.RowTemplate.Height = 28;
@@ -121,7 +179,7 @@
             // 
             this.gridProdukter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProdukter.Location = new System.Drawing.Point(42, 164);
-            this.gridProdukter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridProdukter.Margin = new System.Windows.Forms.Padding(2);
             this.gridProdukter.Name = "gridProdukter";
             this.gridProdukter.RowHeadersWidth = 62;
             this.gridProdukter.RowTemplate.Height = 28;
@@ -166,7 +224,7 @@
             // 
             this.txtbPris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbPris.Location = new System.Drawing.Point(42, 136);
-            this.txtbPris.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbPris.Margin = new System.Windows.Forms.Padding(2);
             this.txtbPris.Name = "txtbPris";
             this.txtbPris.Size = new System.Drawing.Size(69, 21);
             this.txtbPris.TabIndex = 30;
@@ -186,7 +244,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(650, 257);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(163, 141);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -197,7 +255,7 @@
             // 
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
             this.picExit.Location = new System.Drawing.Point(746, -1);
-            this.picExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picExit.Margin = new System.Windows.Forms.Padding(2);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(67, 58);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -205,55 +263,20 @@
             this.picExit.TabStop = false;
             this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
-            // cBProduktNamn
+            // Produktnamn
             // 
-            this.cBProduktNamn.FormattingEnabled = true;
-            this.cBProduktNamn.Items.AddRange(new object[] {
-            "- Välj Produkt -",
-            "Havregryn",
-            "Yoghurt",
-            "Mjölk",
-            "Vaniljpulver",
-            "Honung",
-            "Havregryn",
-            "Banan",
-            "Ägg",
-            "Bacon",
-            "Spenat",
-            "Tomat",
-            "Avokado",
-            "Smör",
-            "Fralla",
-            "Ättika",
-            "Rödlök",
-            "Socker"});
-            this.cBProduktNamn.Location = new System.Drawing.Point(42, 100);
-            this.cBProduktNamn.Name = "cBProduktNamn";
-            this.cBProduktNamn.Size = new System.Drawing.Size(121, 21);
-            this.cBProduktNamn.TabIndex = 41;
-            this.cBProduktNamn.Text = "- Välj Produkt -";
-            this.cBProduktNamn.SelectedIndexChanged += new System.EventHandler(this.cBProduktNamn_SelectedIndexChanged);
+            this.Produktnamn.HeaderText = "Produktnamn";
+            this.Produktnamn.Name = "Produktnamn";
             // 
-            // cBKvantitet
+            // Pris
             // 
-            this.cBKvantitet.FormattingEnabled = true;
-            this.cBKvantitet.Items.AddRange(new object[] {
-            "- Välj antal -",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.cBKvantitet.Location = new System.Drawing.Point(250, 138);
-            this.cBKvantitet.Name = "cBKvantitet";
-            this.cBKvantitet.Size = new System.Drawing.Size(83, 21);
-            this.cBKvantitet.TabIndex = 41;
-            this.cBKvantitet.Text = "- Välj antal -";
+            this.Pris.HeaderText = "Pris";
+            this.Pris.Name = "Pris";
+            // 
+            // Antal
+            // 
+            this.Antal.HeaderText = "Antal";
+            this.Antal.Name = "Antal";
             // 
             // Bestallning
             // 
@@ -266,7 +289,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Bestallning";
             this.Text = "Bestallning";
             this.TopMost = true;
@@ -297,5 +320,8 @@
         private System.Windows.Forms.PictureBox picExit;
         private System.Windows.Forms.ComboBox cBKvantitet;
         private System.Windows.Forms.ComboBox cBProduktNamn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produktnamn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pris;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Antal;
     }
 }

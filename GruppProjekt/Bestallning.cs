@@ -132,7 +132,33 @@ namespace GruppProjekt
 
         private void btnLaggiVarukorg_Click(object sender, EventArgs e)
         {
-            LaggiVarukorg();
+            //LaggiVarukorg();
+
+            DataTable DataTable = new DataTable();
+
+            DataTable.Columns.Add("Produkt", typeof(string));
+            DataTable.Columns.Add("Pris", typeof(string));
+            DataTable.Columns.Add("Antal", typeof(string));
+
+            int n = 0;
+
+            foreach(DataGridViewRow row in gridProdukter.Rows)
+            {
+                if (gridProdukter.Rows.Count != n + 1)
+                {
+                    gridVarukorg.Rows.Add();
+                    gridVarukorg.Rows[n].Cells[0].Value = row.Cells[0].Value.ToString();
+                    gridVarukorg.Rows[n].Cells[1].Value = row.Cells[1].Value.ToString();
+                    gridVarukorg.Rows[n].Cells[2].Value = row.Cells[2].Value.ToString();
+
+                }
+                n++;
+
+            }
+
+            
+           
+
         }
 
         private void gridProdukter_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -188,5 +214,24 @@ namespace GruppProjekt
             dbconnection.visaProdukter();
             txtbPris.Text = Dbconnection.produktPris;
         }
+
+        private void cBKvantitet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable DataTable = new DataTable();
+
+            DataTable.Columns.Add("Produkt", typeof(string));
+            DataTable.Columns.Add("Pris", typeof(string));
+            DataTable.Columns.Add("Antal", typeof(string));
+
+            DataRow dataRow = DataTable.NewRow();
+
+            dataRow["Produkt"] = cBProduktNamn.SelectedItem.ToString();
+            dataRow["Pris"] = txtbPris.Text;
+            dataRow["Antal"] = cBKvantitet.SelectedItem.ToString();
+            DataTable.Rows.Add(dataRow);
+            gridProdukter.DataSource = DataTable;
+        }
+
+
     }
 }
