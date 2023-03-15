@@ -85,17 +85,19 @@
             this.panel1.Controls.Add(this.lblProdukter);
             this.panel1.Controls.Add(this.lblKunder);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(-2, 0);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1219, 624);
+            this.panel1.Size = new System.Drawing.Size(813, 406);
             this.panel1.TabIndex = 0;
             // 
             // picExit
             // 
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(1116, 0);
+            this.picExit.Location = new System.Drawing.Point(730, 5);
+            this.picExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picExit.Name = "picExit";
-            this.picExit.Size = new System.Drawing.Size(100, 90);
+            this.picExit.Size = new System.Drawing.Size(67, 58);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picExit.TabIndex = 25;
             this.picExit.TabStop = false;
@@ -105,10 +107,9 @@
             // 
             this.btnVisa.BackColor = System.Drawing.Color.LightGreen;
             this.btnVisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVisa.Location = new System.Drawing.Point(15, 220);
-            this.btnVisa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVisa.Location = new System.Drawing.Point(10, 143);
             this.btnVisa.Name = "btnVisa";
-            this.btnVisa.Size = new System.Drawing.Size(153, 49);
+            this.btnVisa.Size = new System.Drawing.Size(102, 32);
             this.btnVisa.TabIndex = 24;
             this.btnVisa.Text = "Visa Lista";
             this.btnVisa.UseVisualStyleBackColor = false;
@@ -117,19 +118,19 @@
             // txtbSok
             // 
             this.txtbSok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbSok.Location = new System.Drawing.Point(674, 232);
+            this.txtbSok.Location = new System.Drawing.Point(449, 151);
+            this.txtbSok.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbSok.Name = "txtbSok";
-            this.txtbSok.Size = new System.Drawing.Size(175, 26);
+            this.txtbSok.Size = new System.Drawing.Size(118, 20);
             this.txtbSok.TabIndex = 23;
             // 
             // btnSokKund
             // 
             this.btnSokKund.BackColor = System.Drawing.Color.LightGreen;
             this.btnSokKund.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSokKund.Location = new System.Drawing.Point(856, 220);
-            this.btnSokKund.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSokKund.Location = new System.Drawing.Point(571, 143);
             this.btnSokKund.Name = "btnSokKund";
-            this.btnSokKund.Size = new System.Drawing.Size(153, 49);
+            this.btnSokKund.Size = new System.Drawing.Size(102, 32);
             this.btnSokKund.TabIndex = 22;
             this.btnSokKund.Text = "Sök Kundnamn";
             this.btnSokKund.UseVisualStyleBackColor = false;
@@ -137,9 +138,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(212, 7);
+            this.pictureBox3.Location = new System.Drawing.Point(141, 5);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(112, 83);
+            this.pictureBox3.Size = new System.Drawing.Size(75, 54);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 21;
             this.pictureBox3.TabStop = false;
@@ -147,9 +149,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(467, 7);
+            this.pictureBox2.Location = new System.Drawing.Point(311, 5);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(115, 83);
+            this.pictureBox2.Size = new System.Drawing.Size(77, 54);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
@@ -158,20 +161,22 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.LightGreen;
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F);
-            this.panel2.Location = new System.Drawing.Point(330, 60);
+            this.panel2.Location = new System.Drawing.Point(220, 39);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(112, 4);
+            this.panel2.Size = new System.Drawing.Size(75, 3);
             this.panel2.TabIndex = 19;
             // 
             // gridKunder
             // 
             this.gridKunder.BackgroundColor = System.Drawing.Color.White;
             this.gridKunder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridKunder.Location = new System.Drawing.Point(18, 277);
+            this.gridKunder.Location = new System.Drawing.Point(0, 192);
+            this.gridKunder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gridKunder.Name = "gridKunder";
             this.gridKunder.RowHeadersWidth = 62;
             this.gridKunder.RowTemplate.Height = 28;
-            this.gridKunder.Size = new System.Drawing.Size(904, 329);
+            this.gridKunder.Size = new System.Drawing.Size(603, 214);
             this.gridKunder.TabIndex = 18;
             this.gridKunder.SelectionChanged += new System.EventHandler(this.gridKunder_SelectionChanged);
             // 
@@ -179,10 +184,9 @@
             // 
             this.btnRadera.BackColor = System.Drawing.Color.LightGreen;
             this.btnRadera.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRadera.Location = new System.Drawing.Point(491, 220);
-            this.btnRadera.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnRadera.Location = new System.Drawing.Point(327, 143);
             this.btnRadera.Name = "btnRadera";
-            this.btnRadera.Size = new System.Drawing.Size(153, 49);
+            this.btnRadera.Size = new System.Drawing.Size(102, 32);
             this.btnRadera.TabIndex = 16;
             this.btnRadera.Text = "Radera";
             this.btnRadera.UseVisualStyleBackColor = false;
@@ -192,10 +196,9 @@
             // 
             this.btnAndra.BackColor = System.Drawing.Color.LightGreen;
             this.btnAndra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAndra.Location = new System.Drawing.Point(330, 220);
-            this.btnAndra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAndra.Location = new System.Drawing.Point(220, 143);
             this.btnAndra.Name = "btnAndra";
-            this.btnAndra.Size = new System.Drawing.Size(153, 49);
+            this.btnAndra.Size = new System.Drawing.Size(102, 32);
             this.btnAndra.TabIndex = 15;
             this.btnAndra.Text = "Ändra";
             this.btnAndra.UseVisualStyleBackColor = false;
@@ -205,10 +208,9 @@
             // 
             this.btnSpara.BackColor = System.Drawing.Color.LightGreen;
             this.btnSpara.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSpara.Location = new System.Drawing.Point(169, 220);
-            this.btnSpara.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSpara.Location = new System.Drawing.Point(113, 143);
             this.btnSpara.Name = "btnSpara";
-            this.btnSpara.Size = new System.Drawing.Size(153, 49);
+            this.btnSpara.Size = new System.Drawing.Size(102, 32);
             this.btnSpara.TabIndex = 14;
             this.btnSpara.Text = "Spara";
             this.btnSpara.UseVisualStyleBackColor = false;
@@ -217,82 +219,91 @@
             // txtbLosenord
             // 
             this.txtbLosenord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbLosenord.Location = new System.Drawing.Point(605, 159);
+            this.txtbLosenord.Location = new System.Drawing.Point(403, 103);
+            this.txtbLosenord.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbLosenord.Name = "txtbLosenord";
-            this.txtbLosenord.Size = new System.Drawing.Size(175, 26);
+            this.txtbLosenord.Size = new System.Drawing.Size(118, 20);
             this.txtbLosenord.TabIndex = 13;
             // 
             // txtbAdress
             // 
             this.txtbAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbAdress.Location = new System.Drawing.Point(405, 159);
+            this.txtbAdress.Location = new System.Drawing.Point(270, 103);
+            this.txtbAdress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbAdress.Name = "txtbAdress";
-            this.txtbAdress.Size = new System.Drawing.Size(175, 26);
+            this.txtbAdress.Size = new System.Drawing.Size(118, 20);
             this.txtbAdress.TabIndex = 12;
             // 
             // txtbTelefonnummer
             // 
             this.txtbTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbTelefonnummer.Location = new System.Drawing.Point(212, 159);
+            this.txtbTelefonnummer.Location = new System.Drawing.Point(141, 103);
+            this.txtbTelefonnummer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbTelefonnummer.Name = "txtbTelefonnummer";
-            this.txtbTelefonnummer.Size = new System.Drawing.Size(175, 26);
+            this.txtbTelefonnummer.Size = new System.Drawing.Size(118, 20);
             this.txtbTelefonnummer.TabIndex = 11;
             // 
             // lblLosenord
             // 
             this.lblLosenord.AutoSize = true;
-            this.lblLosenord.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLosenord.Location = new System.Drawing.Point(612, 138);
+            this.lblLosenord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLosenord.Location = new System.Drawing.Point(408, 90);
+            this.lblLosenord.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLosenord.Name = "lblLosenord";
-            this.lblLosenord.Size = new System.Drawing.Size(73, 18);
+            this.lblLosenord.Size = new System.Drawing.Size(59, 13);
             this.lblLosenord.TabIndex = 10;
             this.lblLosenord.Text = "Lösenord";
             // 
             // lblAdress
             // 
             this.lblAdress.AutoSize = true;
-            this.lblAdress.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdress.Location = new System.Drawing.Point(412, 138);
+            this.lblAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdress.Location = new System.Drawing.Point(275, 90);
+            this.lblAdress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAdress.Name = "lblAdress";
-            this.lblAdress.Size = new System.Drawing.Size(56, 18);
+            this.lblAdress.Size = new System.Drawing.Size(45, 13);
             this.lblAdress.TabIndex = 9;
             this.lblAdress.Text = "Adress";
             // 
             // lblTelefonnummer
             // 
             this.lblTelefonnummer.AutoSize = true;
-            this.lblTelefonnummer.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefonnummer.Location = new System.Drawing.Point(219, 138);
+            this.lblTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefonnummer.Location = new System.Drawing.Point(146, 90);
+            this.lblTelefonnummer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefonnummer.Name = "lblTelefonnummer";
-            this.lblTelefonnummer.Size = new System.Drawing.Size(120, 18);
+            this.lblTelefonnummer.Size = new System.Drawing.Size(93, 13);
             this.lblTelefonnummer.TabIndex = 8;
             this.lblTelefonnummer.Text = "Telefonnummer";
             // 
             // lblNamn
             // 
             this.lblNamn.AutoSize = true;
-            this.lblNamn.Font = new System.Drawing.Font("Garamond", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNamn.Location = new System.Drawing.Point(25, 138);
+            this.lblNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNamn.Location = new System.Drawing.Point(17, 90);
+            this.lblNamn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNamn.Name = "lblNamn";
-            this.lblNamn.Size = new System.Drawing.Size(53, 18);
+            this.lblNamn.Size = new System.Drawing.Size(39, 13);
             this.lblNamn.TabIndex = 7;
             this.lblNamn.Text = "Namn";
             // 
             // txtbNamn
             // 
             this.txtbNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbNamn.Location = new System.Drawing.Point(18, 159);
+            this.txtbNamn.Location = new System.Drawing.Point(12, 103);
+            this.txtbNamn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtbNamn.Name = "txtbNamn";
-            this.txtbNamn.Size = new System.Drawing.Size(175, 26);
+            this.txtbNamn.Size = new System.Drawing.Size(118, 20);
             this.txtbNamn.TabIndex = 6;
             // 
             // lblProdukter
             // 
             this.lblProdukter.AutoSize = true;
-            this.lblProdukter.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProdukter.Location = new System.Drawing.Point(588, 28);
+            this.lblProdukter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProdukter.Location = new System.Drawing.Point(392, 18);
+            this.lblProdukter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProdukter.Name = "lblProdukter";
-            this.lblProdukter.Size = new System.Drawing.Size(114, 27);
+            this.lblProdukter.Size = new System.Drawing.Size(87, 20);
             this.lblProdukter.TabIndex = 5;
             this.lblProdukter.Text = "Produkter";
             this.lblProdukter.Click += new System.EventHandler(this.lblProdukter_Click);
@@ -300,33 +311,36 @@
             // lblKunder
             // 
             this.lblKunder.AutoSize = true;
-            this.lblKunder.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKunder.Location = new System.Drawing.Point(325, 28);
+            this.lblKunder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKunder.Location = new System.Drawing.Point(217, 18);
+            this.lblKunder.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKunder.Name = "lblKunder";
-            this.lblKunder.Size = new System.Drawing.Size(86, 27);
+            this.lblKunder.Size = new System.Drawing.Size(66, 20);
             this.lblKunder.TabIndex = 4;
             this.lblKunder.Text = "Kunder";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(957, 389);
+            this.pictureBox1.Location = new System.Drawing.Point(638, 253);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(244, 217);
+            this.pictureBox1.Size = new System.Drawing.Size(163, 141);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1211, 654);
+            this.ClientSize = new System.Drawing.Size(807, 425);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Admin";
             this.Text = "Admin";
             this.panel1.ResumeLayout(false);

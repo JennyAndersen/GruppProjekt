@@ -156,7 +156,7 @@
             this.Produktnamn,
             this.Pris,
             this.Antal});
-            this.gridVarukorg.Location = new System.Drawing.Point(383, 86);
+            this.gridVarukorg.Location = new System.Drawing.Point(392, 84);
             this.gridVarukorg.Margin = new System.Windows.Forms.Padding(2);
             this.gridVarukorg.Name = "gridVarukorg";
             this.gridVarukorg.RowHeadersWidth = 62;
