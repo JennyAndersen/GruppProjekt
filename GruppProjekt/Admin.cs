@@ -35,7 +35,11 @@ namespace GruppProjekt
         //Knapp Spara 
         private void btnSpara_Click(object sender, EventArgs e)
         {
-            
+            Namn = txtbNamn.Text;
+            Telefonnummer = txtbTelefonnummer.Text;
+            Adress = txtbAdress.Text;
+            Lösenord = txtbLosenord.Text;
+          
         }
 
 

@@ -146,8 +146,9 @@
             this.btnBetalning.Name = "btnBetalning";
             this.btnBetalning.Size = new System.Drawing.Size(129, 47);
             this.btnBetalning.TabIndex = 39;
-            this.btnBetalning.Text = "Vidare till betalning";
+            this.btnBetalning.Text = "Betalning";
             this.btnBetalning.UseVisualStyleBackColor = true;
+            this.btnBetalning.Click += new System.EventHandler(this.btnBetalning_Click);
             // 
             // gridVarukorg
             // 

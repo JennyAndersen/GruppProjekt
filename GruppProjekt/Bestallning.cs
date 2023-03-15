@@ -232,6 +232,9 @@ namespace GruppProjekt
             gridProdukter.DataSource = DataTable;
         }
 
-
+        private void btnBetalning_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Vi har nu fått in din betalning. Tack för att du handlat hos oss! ");
+        }
     }
 }
