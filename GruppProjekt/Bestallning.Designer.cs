@@ -28,15 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bestallning));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gridVarukorg = new System.Windows.Forms.DataGridView();
+            this.gridProdukter = new System.Windows.Forms.DataGridView();
             this.cBKvantitet = new System.Windows.Forms.ComboBox();
             this.cBProduktNamn = new System.Windows.Forms.ComboBox();
             this.btnLaggiVarukorg = new System.Windows.Forms.Button();
             this.btnBetalning = new System.Windows.Forms.Button();
-            this.gridVarukorg = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
-            this.gridProdukter = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,9 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picExit = new System.Windows.Forms.PictureBox();
-            this.Produktnamn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pris = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Antal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVarukorg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridProdukter)).BeginInit();
@@ -57,13 +56,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGreen;
+            this.panel1.Controls.Add(this.gridVarukorg);
+            this.panel1.Controls.Add(this.gridProdukter);
             this.panel1.Controls.Add(this.cBKvantitet);
             this.panel1.Controls.Add(this.cBProduktNamn);
             this.panel1.Controls.Add(this.btnLaggiVarukorg);
             this.panel1.Controls.Add(this.btnBetalning);
-            this.panel1.Controls.Add(this.gridVarukorg);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.gridProdukter);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
@@ -74,6 +73,71 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(657, 417);
             this.panel1.TabIndex = 1;
+            // 
+            // gridVarukorg
+            // 
+            this.gridVarukorg.AllowUserToAddRows = false;
+            this.gridVarukorg.AllowUserToDeleteRows = false;
+            this.gridVarukorg.AllowUserToResizeColumns = false;
+            this.gridVarukorg.AllowUserToResizeRows = false;
+            this.gridVarukorg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridVarukorg.BackgroundColor = System.Drawing.Color.White;
+            this.gridVarukorg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gridVarukorg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridVarukorg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gridVarukorg.ColumnHeadersHeight = 30;
+            this.gridVarukorg.EnableHeadersVisualStyles = false;
+            this.gridVarukorg.Location = new System.Drawing.Point(392, 84);
+            this.gridVarukorg.Margin = new System.Windows.Forms.Padding(2);
+            this.gridVarukorg.MultiSelect = false;
+            this.gridVarukorg.Name = "gridVarukorg";
+            this.gridVarukorg.ReadOnly = true;
+            this.gridVarukorg.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridVarukorg.RowHeadersWidth = 40;
+            this.gridVarukorg.RowTemplate.Height = 28;
+            this.gridVarukorg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridVarukorg.Size = new System.Drawing.Size(241, 254);
+            this.gridVarukorg.TabIndex = 43;
+            // 
+            // gridProdukter
+            // 
+            this.gridProdukter.AllowUserToAddRows = false;
+            this.gridProdukter.AllowUserToDeleteRows = false;
+            this.gridProdukter.AllowUserToResizeColumns = false;
+            this.gridProdukter.AllowUserToResizeRows = false;
+            this.gridProdukter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridProdukter.BackgroundColor = System.Drawing.Color.White;
+            this.gridProdukter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gridProdukter.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridProdukter.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.gridProdukter.ColumnHeadersHeight = 30;
+            this.gridProdukter.EnableHeadersVisualStyles = false;
+            this.gridProdukter.Location = new System.Drawing.Point(42, 161);
+            this.gridProdukter.Margin = new System.Windows.Forms.Padding(2);
+            this.gridProdukter.MultiSelect = false;
+            this.gridProdukter.Name = "gridProdukter";
+            this.gridProdukter.ReadOnly = true;
+            this.gridProdukter.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridProdukter.RowHeadersWidth = 40;
+            this.gridProdukter.RowTemplate.Height = 28;
+            this.gridProdukter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridProdukter.Size = new System.Drawing.Size(314, 140);
+            this.gridProdukter.TabIndex = 42;
+            this.gridProdukter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProdukter_CellContentClick);
             // 
             // cBKvantitet
             // 
@@ -150,21 +214,6 @@
             this.btnBetalning.UseVisualStyleBackColor = true;
             this.btnBetalning.Click += new System.EventHandler(this.btnBetalning_Click);
             // 
-            // gridVarukorg
-            // 
-            this.gridVarukorg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridVarukorg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Produktnamn,
-            this.Pris,
-            this.Antal});
-            this.gridVarukorg.Location = new System.Drawing.Point(392, 84);
-            this.gridVarukorg.Margin = new System.Windows.Forms.Padding(2);
-            this.gridVarukorg.Name = "gridVarukorg";
-            this.gridVarukorg.RowHeadersWidth = 62;
-            this.gridVarukorg.RowTemplate.Height = 28;
-            this.gridVarukorg.Size = new System.Drawing.Size(241, 254);
-            this.gridVarukorg.TabIndex = 38;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -175,18 +224,6 @@
             this.label6.Size = new System.Drawing.Size(118, 29);
             this.label6.TabIndex = 37;
             this.label6.Text = "Varukorg";
-            // 
-            // gridProdukter
-            // 
-            this.gridProdukter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProdukter.Location = new System.Drawing.Point(42, 164);
-            this.gridProdukter.Margin = new System.Windows.Forms.Padding(2);
-            this.gridProdukter.Name = "gridProdukter";
-            this.gridProdukter.RowHeadersWidth = 62;
-            this.gridProdukter.RowTemplate.Height = 28;
-            this.gridProdukter.Size = new System.Drawing.Size(291, 131);
-            this.gridProdukter.TabIndex = 36;
-            this.gridProdukter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProdukter_CellContentClick);
             // 
             // label4
             // 
@@ -264,21 +301,6 @@
             this.picExit.TabStop = false;
             this.picExit.Click += new System.EventHandler(this.picExit_Click);
             // 
-            // Produktnamn
-            // 
-            this.Produktnamn.HeaderText = "Produktnamn";
-            this.Produktnamn.Name = "Produktnamn";
-            // 
-            // Pris
-            // 
-            this.Pris.HeaderText = "Pris";
-            this.Pris.Name = "Pris";
-            // 
-            // Antal
-            // 
-            this.Antal.HeaderText = "Antal";
-            this.Antal.Name = "Antal";
-            // 
             // Bestallning
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,6 +316,7 @@
             this.Name = "Bestallning";
             this.Text = "Bestallning";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Bestallning_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridVarukorg)).EndInit();
@@ -310,19 +333,16 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView gridProdukter;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtbPris;
         private System.Windows.Forms.Button btnBetalning;
-        private System.Windows.Forms.DataGridView gridVarukorg;
         private System.Windows.Forms.Button btnLaggiVarukorg;
         private System.Windows.Forms.PictureBox picExit;
         private System.Windows.Forms.ComboBox cBKvantitet;
         private System.Windows.Forms.ComboBox cBProduktNamn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produktnamn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pris;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Antal;
+        private System.Windows.Forms.DataGridView gridProdukter;
+        private System.Windows.Forms.DataGridView gridVarukorg;
     }
 }

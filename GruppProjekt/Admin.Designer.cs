@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picExit = new System.Windows.Forms.PictureBox();
             this.btnVisa = new System.Windows.Forms.Button();
@@ -52,12 +54,20 @@
             this.lblProdukter = new System.Windows.Forms.Label();
             this.lblKunder = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.errortxtbNamn = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errortxtbTelefonnummer = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errortxtbAdress = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errortxtbLosenord = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKunder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errortxtbNamn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errortxtbTelefonnummer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errortxtbAdress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errortxtbLosenord)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,7 +96,7 @@
             this.panel1.Controls.Add(this.lblKunder);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(813, 406);
             this.panel1.TabIndex = 0;
@@ -95,7 +105,7 @@
             // 
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
             this.picExit.Location = new System.Drawing.Point(730, 5);
-            this.picExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picExit.Margin = new System.Windows.Forms.Padding(2);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(67, 58);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -119,27 +129,29 @@
             // 
             this.txtbSok.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.txtbSok.Location = new System.Drawing.Point(449, 151);
-            this.txtbSok.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbSok.Margin = new System.Windows.Forms.Padding(2);
             this.txtbSok.Name = "txtbSok";
             this.txtbSok.Size = new System.Drawing.Size(118, 20);
             this.txtbSok.TabIndex = 23;
+            this.txtbSok.TextChanged += new System.EventHandler(this.txtbSok_TextChanged);
             // 
             // btnSokKund
             // 
             this.btnSokKund.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSokKund.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSokKund.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSokKund.Location = new System.Drawing.Point(571, 143);
             this.btnSokKund.Name = "btnSokKund";
-            this.btnSokKund.Size = new System.Drawing.Size(102, 32);
+            this.btnSokKund.Size = new System.Drawing.Size(119, 32);
             this.btnSokKund.TabIndex = 22;
             this.btnSokKund.Text = "Sök Kundnamn";
             this.btnSokKund.UseVisualStyleBackColor = false;
+            this.btnSokKund.Click += new System.EventHandler(this.btnSokKund_Click);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(141, 5);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(75, 54);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -150,7 +162,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(311, 5);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(77, 54);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -162,23 +174,43 @@
             this.panel2.BackColor = System.Drawing.Color.LightGreen;
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 4F);
             this.panel2.Location = new System.Drawing.Point(220, 39);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(75, 3);
             this.panel2.TabIndex = 19;
             // 
             // gridKunder
             // 
+            this.gridKunder.AllowUserToAddRows = false;
+            this.gridKunder.AllowUserToDeleteRows = false;
+            this.gridKunder.AllowUserToResizeColumns = false;
+            this.gridKunder.AllowUserToResizeRows = false;
+            this.gridKunder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridKunder.BackgroundColor = System.Drawing.Color.White;
-            this.gridKunder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridKunder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gridKunder.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridKunder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridKunder.ColumnHeadersHeight = 30;
+            this.gridKunder.EnableHeadersVisualStyles = false;
             this.gridKunder.Location = new System.Drawing.Point(0, 192);
-            this.gridKunder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gridKunder.Margin = new System.Windows.Forms.Padding(2);
+            this.gridKunder.MultiSelect = false;
             this.gridKunder.Name = "gridKunder";
-            this.gridKunder.RowHeadersWidth = 62;
+            this.gridKunder.ReadOnly = true;
+            this.gridKunder.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.gridKunder.RowHeadersWidth = 40;
             this.gridKunder.RowTemplate.Height = 28;
+            this.gridKunder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridKunder.Size = new System.Drawing.Size(603, 214);
             this.gridKunder.TabIndex = 18;
-            this.gridKunder.SelectionChanged += new System.EventHandler(this.gridKunder_SelectionChanged);
+            this.gridKunder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridKunder_CellClick);
             // 
             // btnRadera
             // 
@@ -219,8 +251,8 @@
             // txtbLosenord
             // 
             this.txtbLosenord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbLosenord.Location = new System.Drawing.Point(403, 103);
-            this.txtbLosenord.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbLosenord.Location = new System.Drawing.Point(451, 103);
+            this.txtbLosenord.Margin = new System.Windows.Forms.Padding(2);
             this.txtbLosenord.Name = "txtbLosenord";
             this.txtbLosenord.Size = new System.Drawing.Size(118, 20);
             this.txtbLosenord.TabIndex = 13;
@@ -228,8 +260,8 @@
             // txtbAdress
             // 
             this.txtbAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbAdress.Location = new System.Drawing.Point(270, 103);
-            this.txtbAdress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbAdress.Location = new System.Drawing.Point(303, 103);
+            this.txtbAdress.Margin = new System.Windows.Forms.Padding(2);
             this.txtbAdress.Name = "txtbAdress";
             this.txtbAdress.Size = new System.Drawing.Size(118, 20);
             this.txtbAdress.TabIndex = 12;
@@ -237,8 +269,8 @@
             // txtbTelefonnummer
             // 
             this.txtbTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.txtbTelefonnummer.Location = new System.Drawing.Point(141, 103);
-            this.txtbTelefonnummer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbTelefonnummer.Location = new System.Drawing.Point(152, 103);
+            this.txtbTelefonnummer.Margin = new System.Windows.Forms.Padding(2);
             this.txtbTelefonnummer.Name = "txtbTelefonnummer";
             this.txtbTelefonnummer.Size = new System.Drawing.Size(118, 20);
             this.txtbTelefonnummer.TabIndex = 11;
@@ -247,7 +279,7 @@
             // 
             this.lblLosenord.AutoSize = true;
             this.lblLosenord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLosenord.Location = new System.Drawing.Point(408, 90);
+            this.lblLosenord.Location = new System.Drawing.Point(456, 90);
             this.lblLosenord.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLosenord.Name = "lblLosenord";
             this.lblLosenord.Size = new System.Drawing.Size(59, 13);
@@ -258,7 +290,7 @@
             // 
             this.lblAdress.AutoSize = true;
             this.lblAdress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdress.Location = new System.Drawing.Point(275, 90);
+            this.lblAdress.Location = new System.Drawing.Point(308, 90);
             this.lblAdress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAdress.Name = "lblAdress";
             this.lblAdress.Size = new System.Drawing.Size(45, 13);
@@ -269,7 +301,7 @@
             // 
             this.lblTelefonnummer.AutoSize = true;
             this.lblTelefonnummer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefonnummer.Location = new System.Drawing.Point(146, 90);
+            this.lblTelefonnummer.Location = new System.Drawing.Point(157, 90);
             this.lblTelefonnummer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTelefonnummer.Name = "lblTelefonnummer";
             this.lblTelefonnummer.Size = new System.Drawing.Size(93, 13);
@@ -291,7 +323,7 @@
             // 
             this.txtbNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.txtbNamn.Location = new System.Drawing.Point(12, 103);
-            this.txtbNamn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbNamn.Margin = new System.Windows.Forms.Padding(2);
             this.txtbNamn.Name = "txtbNamn";
             this.txtbNamn.Size = new System.Drawing.Size(118, 20);
             this.txtbNamn.TabIndex = 6;
@@ -323,12 +355,28 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(638, 253);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(163, 141);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // errortxtbNamn
+            // 
+            this.errortxtbNamn.ContainerControl = this;
+            // 
+            // errortxtbTelefonnummer
+            // 
+            this.errortxtbTelefonnummer.ContainerControl = this;
+            // 
+            // errortxtbAdress
+            // 
+            this.errortxtbAdress.ContainerControl = this;
+            // 
+            // errortxtbLosenord
+            // 
+            this.errortxtbLosenord.ContainerControl = this;
             // 
             // Admin
             // 
@@ -340,9 +388,10 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin";
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.Admin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picExit)).EndInit();
@@ -350,6 +399,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKunder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errortxtbNamn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errortxtbTelefonnummer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errortxtbAdress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errortxtbLosenord)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,5 +432,9 @@
         private System.Windows.Forms.Button btnSokKund;
         private System.Windows.Forms.Button btnVisa;
         private System.Windows.Forms.PictureBox picExit;
+        private System.Windows.Forms.ErrorProvider errortxtbNamn;
+        private System.Windows.Forms.ErrorProvider errortxtbTelefonnummer;
+        private System.Windows.Forms.ErrorProvider errortxtbAdress;
+        private System.Windows.Forms.ErrorProvider errortxtbLosenord;
     }
 }

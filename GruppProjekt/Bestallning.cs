@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,9 @@ namespace GruppProjekt
     {
 
         MySqlConnection conn;
-      
-
+        public static string produktnamn { get; set; }
+        public static int antal { get; set; }
+        public static int totalpris { get; set; }
         public Bestallning()
         {
             InitializeComponent();
@@ -29,7 +31,11 @@ namespace GruppProjekt
             string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};";
             conn = new MySqlConnection(connString);
 
+            Dbconnection dbconnection = new Dbconnection();
+            dbconnection.visalistprodukter(gridProdukter);
+
             VisaProdukter();
+
             Varukorgen();
         }
 
@@ -163,7 +169,7 @@ namespace GruppProjekt
 
         private void gridProdukter_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         public void LaggiVarukorg()
@@ -210,31 +216,30 @@ namespace GruppProjekt
         private void cBProduktNamn_SelectedIndexChanged(object sender, EventArgs e)
         {
             Dbconnection dbconnection = new Dbconnection();
-            Dbconnection.produktNamn = (string) cBProduktNamn.SelectedItem;
+            Dbconnection.produktNamnDb = (string) cBProduktNamn.SelectedItem;
             dbconnection.visaProdukter();
-            txtbPris.Text = Dbconnection.produktPris;
+            txtbPris.Text = Dbconnection.produktPrisDb;
         }
 
         private void cBKvantitet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataTable DataTable = new DataTable();
+            produktnamn = cBProduktNamn.SelectedItem.ToString();
+            antal = Convert.ToInt32(cBKvantitet.SelectedItem.ToString());
+            totalpris = Convert.ToInt32(txtbPris.Text) * antal;
 
-            DataTable.Columns.Add("Produkt", typeof(string));
-            DataTable.Columns.Add("Pris", typeof(string));
-            DataTable.Columns.Add("Antal", typeof(string));
-
-            DataRow dataRow = DataTable.NewRow();
-
-            dataRow["Produkt"] = cBProduktNamn.SelectedItem.ToString();
-            dataRow["Pris"] = txtbPris.Text;
-            dataRow["Antal"] = cBKvantitet.SelectedItem.ToString();
-            DataTable.Rows.Add(dataRow);
-            gridProdukter.DataSource = DataTable;
+            Dbconnection dbconnection = new Dbconnection();
+            dbconnection.sparalistprodukter();
+            dbconnection.visalistprodukter(gridProdukter);
         }
 
         private void btnBetalning_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Vi har nu fått in din betalning. Tack för att du handlat hos oss! ");
+        }
+
+        private void Bestallning_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
