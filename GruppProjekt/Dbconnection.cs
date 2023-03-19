@@ -26,10 +26,12 @@ namespace GruppProjekt
         public static string användarnamnDb { get; set; }
         public static string lösenordDb { get; set; }
         public static int Dubblettnamn { get; set; }
+        public static int Dubblettproduktnamn { get; set; }
 
         public static string kund_namnDb { get; set; }
         public static string produktNamnDb { get; set; }
         public static string produktPrisDb { get; set; }
+        public static string produktAntalDb { get; set; }
 
         public void kundLogin()
         {
@@ -53,20 +55,186 @@ namespace GruppProjekt
             conn.Close();
         }
 
-        public void visaProdukter()
+
+
+        internal void kundlistprodukter(DataGridView dataGridView)
         {
-            LoggaIn loggaIn = new LoggaIn();
-            string query = "grupprojekt.visaProdukt";
+            string query = "grupprojekt.kundlistprodukter";
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                DataTable table = new DataTable();
+                table.Load(reader);
+                dataGridView.DataSource = table;
+            }
+            conn.Close();
+        }
+
+
+        public List<string> visaprodukt()
+        {
+            List<string> productNames = new List<string>();
+            string query = "grupprojekt.visaprodukt";
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("$produktNamn", produktNamnDb);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                
+                while (reader.Read())
+                {
+                    productNames.Add(reader["produkter_namn"].ToString());
+                }
+                reader.Close();
+                conn.Close();
+            }
+            return productNames;
+        }
+
+
+        public void visaproduktpris()
+        {
+            Bestallning bestallning = new Bestallning();
+
+            string query = "grupprojekt.visaproduktpris";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("$produktNamn", Bestallning.produktnamn);
             cmd.CommandType = CommandType.StoredProcedure;
             using (MySqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    produktPrisDb = reader.GetString(2);
+                    produktPrisDb = reader.GetString(3);
+                    produktAntalDb = reader.GetString(4);
                 }
+            }
+            conn.Close();
+        }
+
+
+        public void sparakundlist()
+        {
+            Bestallning bestallning = new Bestallning();
+            string query = "grupprojekt.sparakundlist;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$produktnamn", Bestallning.produktnamn);
+            cmd.Parameters.AddWithValue("$antal", Bestallning.antal);
+            cmd.Parameters.AddWithValue("$totalpris", Bestallning.totalpris);
+            cmd.Parameters.AddWithValue("$kundId", kund_idDb);
+
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
+        
+        public void ändrakundlist()
+        {
+            Bestallning bestallning = new Bestallning();
+            string query = "grupprojekt.ändrakundlist;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$kundlisId", Bestallning.kundlistId);
+            cmd.Parameters.AddWithValue("$produktnamn", Bestallning.produktnamn);
+            cmd.Parameters.AddWithValue("$antal", Bestallning.antal);
+            cmd.Parameters.AddWithValue("$totalpris", Bestallning.totalpris);
+
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
+
+
+        public void raderakundlistprodukt()
+        {
+
+            Admin admin = new Admin();
+            string query = "grupprojekt.raderakundlistprodukt;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$kundlistId", Bestallning.kundlistId);
+
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
+        
+        public void LäggiVarukorg()
+        {
+
+            Admin admin = new Admin();
+            string query = "grupprojekt.LäggiVarukorg;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
+
+        public void raderavarkorg()
+        {
+
+            Admin admin = new Admin();
+            string query = "grupprojekt.raderavarkorg;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$kund_idDb", kund_idDb);
+
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
+
+        public void kundvarukorg(DataGridView dataGridView)
+        {
+            Bestallning bestallning = new Bestallning();
+
+            string query = "grupprojekt.kundvarukorg";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("$kundId", kund_idDb);
+            cmd.CommandType = CommandType.StoredProcedure;
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                DataTable table = new DataTable();
+                table.Load(reader);
+                dataGridView.DataSource = table;
             }
             conn.Close();
         }
@@ -240,6 +408,118 @@ namespace GruppProjekt
         }
 
 
+        internal void visaprodukter(DataGridView dataGridView)
+        {
+            string query = "grupprojekt.visaprodukter;";
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                DataTable table = new DataTable();
+                table.Load(reader);
+                dataGridView.DataSource = table;
+            }
+            conn.Close();
+        }
+
+
+        public void kollaDubblettproduktnamn()
+        {
+            Produkter produkter = new Produkter();
+            string query = "grupprojekt.kollaDubblettproduktnamn;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$Dubblettproduktnamn", Produkter.produktnamn);
+            using (MySqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Dubblettproduktnamn = reader.GetInt32(0);
+                }
+            }
+            conn.Close(); ;
+        }
+
+
+        internal void sparaprodukter()
+        {
+
+            Produkter produkter = new Produkter();
+            string query = "grupprojekt.sparaprodukter";
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$produktnamn", Produkter.produktnamn);
+            cmd.Parameters.AddWithValue("$märke", Produkter.märke);
+            cmd.Parameters.AddWithValue("$pris", Produkter.pris);
+            cmd.Parameters.AddWithValue("$antal", Produkter.antal);
+            cmd.Parameters.AddWithValue("$matvarugrupp", Produkter.matvarugrupp);
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
+
+
+        
+
+        public void ändraprodukt()
+        {
+
+            Produkter produkter = new Produkter();
+            string query = "grupprojekt.ändraprodukt;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$produkid", Produkter.produkid);
+            cmd.Parameters.AddWithValue("$produktnamn", Produkter.produktnamn);
+            cmd.Parameters.AddWithValue("$märke", Produkter.märke);
+            cmd.Parameters.AddWithValue("$pris", Produkter.pris);
+            cmd.Parameters.AddWithValue("$antal", Produkter.antal);
+            cmd.Parameters.AddWithValue("$matvarugrupp", Produkter.matvarugrupp);
+
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
+
+
+        public void raderaprodukt()
+        {
+            Produkter produkter = new Produkter();
+
+            Admin admin = new Admin();
+            string query = "grupprojekt.raderaprodukt;";
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("$produkid", Produkter.produkid);
+
+            var ds = new DataSet();
+
+            cmd.ExecuteReader();
+
+            conn.Close();
+        }
 
 
     }

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
+using System.Data.Odbc;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
@@ -18,317 +20,276 @@ namespace GruppProjekt
 
     public partial class Produkter : Form
     {
-        MySqlConnection conn;
-        TextBox[] txtBoxesProdukter;
+        public static string produkid { get; set; }
+        public static string produktnamn { get; set; }
+        public static string märke { get; set; }
+        public static string pris { get; set; }
+        public static string antal { get; set; }
+        public static string matvarugruppid { get; set; }
+        public static string matvarugrupp { get; set; }
 
+        
         public Produkter()
         {
             InitializeComponent();
 
-            //Bygger upp MysqlConnection  objekt för Produkter
-            string server = "localhost";
-            string database = "grupprojekt";
-            string user = "root";
-            string pass = "Onsala01";
-            string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};";
-            conn = new MySqlConnection(connString);
-            //Skapar en array ref för input av fälten 
-            txtBoxesProdukter = new TextBox[] { txtbProduktnamn, txtbProduktmarke, txtbPris, txtbAntal };
         }
 
-        public void SparaProdukter()
+        Dbconnection dbconnection = new Dbconnection();
+        private void btnVisaProdukt_Click(object sender, EventArgs e)
         {
-            //validering
-            bool valid = true;
-
-            foreach (TextBox txtBox in txtBoxesProdukter)
-            {
-                //Trimmar test-innehållet
-                txtBox.Text = txtBox.Text.Trim();
-
-                //Kontrollera att txtBox har text
-                if (txtBox.Text == "")
-                {
-                    //Validering har misslyckats
-                    valid = false;
-                    txtBox.BackColor = Color.IndianRed;
-                }
-                else
-                {
-                    txtBox.BackColor = TextBox.DefaultBackColor;
-                }
-            }
-
-            //Kontrollera valid
-            if (!valid)
-            {
-                MessageBox.Show("Felaktig validering. Kontrollera röda fält.");
-                return;
-            }
-            foreach (TextBox txtBox in txtBoxesProdukter)
-            {
-                //Trimmar test-innehållet
-                txtBox.Text = txtBox.Text.Trim();
-
-                //Kontrollera att txtBox har text
-                if (txtBox.Text == "")
-                {
-                    //Validering har misslyckats
-                    valid = false;
-                    txtBox.BackColor = Color.IndianRed;
-                }
-                else
-                {
-                    txtBox.BackColor = TextBox.DefaultBackColor;
-                }
-            }
-
-            //Kontrollera valid
-            if (!valid)
-            {
-                MessageBox.Show("Felaktig validering. Kontrollera röda fält.");
-                return;
-            }
-
-            //Hämta värdena från textfält 
-            string produktnamn = txtbProduktnamn.Text.ToString();
-            string produktmarke = txtbProduktmarke.Text.ToString();
-            decimal pris = Convert.ToDecimal(txtbPris.Text);
-            string matvarugrupp = cbMatvarugrupp.Text.ToString();
-            int antal = Convert.ToInt32(txtbAntal.Text);
-
-            //Bygg upp SQL Querry 
-            string sqlQuerry = $"CALL sparaProdukter('{produktnamn}', '{produktmarke}', '{pris}', '{matvarugrupp}', '{antal}');";
-
-            //Skapar ett MySqlCommand objekt 
-            MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
-
-            //skapa ett try catch block 
-            try
-            {
-                //Öppna Connection
-                conn.Open();
-
-                //Exekvera kommando
-                cmd.ExecuteReader();
-
-                //Stänga Connection
-                conn.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-
-            VisaProdukter();
-            MessageBox.Show("Produkt är tillagd!");
+            Dbconnection dbconnection = new Dbconnection();
+            dbconnection.visaprodukter(gridProdukter);
         }
 
         private void btnSparaProdukt_Click(object sender, EventArgs e)
         {
-            SparaProdukter(); 
-        }
-
-        public void VisaProdukter(string keyword = "" )
-        {
-            //Skapa en sql querrry 
-            string sqlQuerry;
-            if (keyword == "") sqlQuerry = $"CALL visaProdukter();";
-            else sqlQuerry = $"CALL sokProdukter('{keyword}');";
-
-            //skapa ett objekt av mysqlcommand
-            MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
-
-            //Exekvera querry mot DB. Få data tillbaka
             try
             {
-                //Öppnar koppling till DB
-                conn.Open();
+                produktnamn = txtbProduktnamn.Text;
+                märke = txtbProduktmarke.Text; ;
+                pris = txtbPris.Text;
+                antal = txtbAntal.Text;
+                matvarugrupp = cbMatvarugrupp.Text;
 
-                //Exekvera cmd
-                MySqlDataReader reader = cmd.ExecuteReader();
 
-                //Placera data i en DataTable objekt
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-
-                //Koppla TD objekt som DataSource till Grid
-                gridProdukter.DataSource = dt;
-
-                //Ladda Reader på Nytt
-                reader = cmd.ExecuteReader();
-
-                //Tömma personallista 
-                Produkt.produkt.Clear();
-
-                while (reader.Read())
+                if (txtbProduktnamn.Text != "")
                 {
-                    //Hämta och spara data till variablerna 
-                    int produktid = Convert.ToInt32(reader["produkter_produktid"]);
-                    string produktnamn = reader["produkter_produktnamn"].ToString();
-                    string produktmarke = reader["produkter_produktmarke"].ToString();
-                    string matvarugrupp = reader["produkter_matvarugrupp"].ToString();
-                    decimal pris = Convert.ToDecimal(reader["produkter_pris"]);
-                    int antal = Convert.ToInt32(reader["produkter_antal"]);
-
-
-                    //Skapa ett personal objekt och spara i den statiska listan 
-                    Produkt.produkt.Add(new Produkt(produktid, produktnamn, produktmarke, pris, matvarugrupp, antal));
+                    errortxtbProduktnamn.SetError(txtbProduktnamn, string.Empty);
+                }
+                else
+                {
+                    errortxtbProduktnamn.SetError(txtbProduktnamn, "Måste finns ett produktnamn");
                 }
 
-                //stänga kopplingen till db
-                conn.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+                if (txtbProduktmarke.Text != "")
+                {
+                    errortxtbProduktmarke.SetError(txtbProduktmarke, string.Empty);
+                }
+                else
+                {
+                    errortxtbProduktmarke.SetError(txtbProduktmarke, "Måste finns ett märktnamn");
+                }
 
-            //Enabla knapp för update och delet 
-        }
+                if (txtbPris.Text != "")
+                {
+                    errortxtbPris.SetError(txtbPris, string.Empty);
+                }
+                else
+                {
+                    errortxtbPris.SetError(txtbPris, "Måste finns pris");
+                }
 
-        private void ValjProdukt()
-        {
-            //Kontrollera att vi har en markerad rad i grid
-            if (gridProdukter.SelectedRows.Count != 1) return;
+                if (txtbAntal.Text != "")
+                {
+                    errortxtbAntal.SetError(txtbAntal, string.Empty);
+                }
+                else
+                {
+                    errortxtbAntal.SetError(txtbAntal, "Måste finns antal produkter");
+                }
 
-            //Hämta data från grid
-            DataGridViewSelectedRowCollection row = gridProdukter.SelectedRows;
-            int produktid = Convert.ToInt32(row[0].Cells[0].Value);
+                if (cbMatvarugrupp.Text != "- Välj matvarugrupp-")
+                {
+                    errorcbMatvarugrupp.SetError(cbMatvarugrupp, string.Empty);
+                }
+                else
+                {
+                    errorcbMatvarugrupp.SetError(cbMatvarugrupp, "Måste Välj matvarugrupp");
+                }
 
-            //Skriva in data från grid till formulär
-            foreach (Produkt produkt in Produkt.produkt)
-            {
-                // Kontrollera ID property
-                if (produkt.produktid == produktid)
+                if (txtbProduktnamn.Text != "" && txtbProduktmarke.Text != "" && txtbPris.Text != "" && txtbAntal.Text != "" && cbMatvarugrupp.Text != "- Välj matvarugrupp-")
                 {
 
-                    txtbProduktnamn.Text = produkt.produktnamn;
-                    txtbProduktmarke.Text = produkt.produktmarke;
-                    txtbPris.Text = produkt.pris.ToString();
-                    cbMatvarugrupp.Text = produkt.matvarugrupp;
-                    txtbAntal.Text = produkt.antal.ToString();
+                    dbconnection.kollaDubblettproduktnamn();
+                    
+                    if (Dbconnection.Dubblettproduktnamn > 0)
+                    {
+                        errortxtbProduktnamn.SetError(txtbProduktnamn, "Namnet finns redan");
+                    }
+                    else
+                    {
+                        errortxtbProduktnamn.SetError(txtbProduktnamn, string.Empty);
+                        dbconnection.sparaprodukter();
+                        dbconnection.visaprodukter(gridProdukter);
 
-                    break;
-
+                        txtbProduktnamn.Text = "";
+                        txtbPris.Text = "";
+                        txtbAntal.Text = "";
+                        txtbProduktmarke.Text = "";
+                        cbMatvarugrupp.Text = "- Välj matvarugrupp-";
+                    }
                 }
+
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
-        private void gridProdukter_SelectionChanged(object sender, EventArgs e)
+        private void btnAndraProdukt_Click(object sender, EventArgs e)
         {
-            ValjProdukt(); 
-        }
-
-        public void RaderaProdukter()
-        {
-
-            //Kontrollera att vi har en markerad rad i grid
-            if (gridProdukter.SelectedRows.Count != 1) return;
-
-            //Hämta data från grid
-            DataGridViewSelectedRowCollection row = gridProdukter.SelectedRows;
-            int produktid = Convert.ToInt32(row[0].Cells[0].Value);
-
-            //Skapar en SQL Querry
-            string SqlQuerry = $"CALL raderaProdukter({produktid});";
-
-            //MySqlCommand
-            MySqlCommand cmd = new MySqlCommand(SqlQuerry, conn);
-
             try
             {
-                //Öppna koppling till DB
-                conn.Open();
+                produktnamn = txtbProduktnamn.Text;
+                märke = txtbProduktmarke.Text; ;
+                pris = txtbPris.Text;
+                antal = txtbAntal.Text;
+                matvarugrupp = cbMatvarugrupp.Text;
 
-                //Exekverar commando
-                cmd.ExecuteReader();
+                if (txtbProduktnamn.Text != "")
+                {
+                    errortxtbProduktnamn.SetError(txtbProduktnamn, string.Empty);
+                }
+                else
+                {
+                    errortxtbProduktnamn.SetError(txtbProduktnamn, "Måste finns ett produktnamn");
+                }
 
-                conn.Close();
+                if (txtbProduktmarke.Text != "")
+                {
+                    errortxtbProduktmarke.SetError(txtbProduktmarke, string.Empty);
+                }
+                else
+                {
+                    errortxtbProduktmarke.SetError(txtbProduktmarke, "Måste finns ett märktnamn");
+                }
+
+                if (txtbPris.Text != "")
+                {
+                    errortxtbPris.SetError(txtbPris, string.Empty);
+                }
+                else
+                {
+                    errortxtbPris.SetError(txtbPris, "Måste finns pris");
+                }
+
+                if (txtbAntal.Text != "")
+                {
+                    errortxtbAntal.SetError(txtbAntal, string.Empty);
+                }
+                else
+                {
+                    errortxtbAntal.SetError(txtbAntal, "Måste finns antal produkter");
+                }
+
+                if (cbMatvarugrupp.Text != "- Välj matvarugrupp-")
+                {
+                    errorcbMatvarugrupp.SetError(cbMatvarugrupp, string.Empty);
+                }
+                else
+                {
+                    errorcbMatvarugrupp.SetError(cbMatvarugrupp, "Måste Välj matvarugrupp");
+                }
+
+                if (txtbProduktnamn.Text != "" && txtbProduktmarke.Text != "" && txtbPris.Text != "" && txtbAntal.Text != "" && cbMatvarugrupp.Text != "- Välj matvarugrupp-")
+                {
+                    DialogResult result = MessageBox.Show("Är du säker på att du vill ändra den kunden? \n" +
+                                                         $"        \n Produktnamn = {produktnamn}" +
+                                                         $"        \n Märke = {märke}" +
+                                                         $"        \n Pris = {pris}" +
+                                                         $"        \n Antal = {antal}" +
+                                                         $"        \n Matvarugrupp = {matvarugrupp}",
+                                                         "Bekräftelse",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question,
+                                                         MessageBoxDefaultButton.Button2);
+                    if (result == DialogResult.Yes)
+                    {
+                        txtbProduktnamn.Text = "";
+                        txtbPris.Text = "";
+                        txtbAntal.Text = "";
+                        txtbProduktmarke.Text = "";
+                        cbMatvarugrupp.Text = "- Välj matvarugrupp-";
+
+                        dbconnection.ändraprodukt();
+                        btnVisaProdukt_Click(sender, e);
+
+                    }
+
+
+                }
+                
+
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(ex.Message);
             }
 
-            //Hämta den nya datan
-            VisaProdukter();
         }
 
         private void btnRaderaProdukt_Click(object sender, EventArgs e)
         {
-            RaderaProdukter();
+            produktnamn = txtbProduktnamn.Text;
+
+
+            DialogResult result = MessageBox.Show("Är du säker på att du vill radera den kunden? \n" +
+                                             $"        Produktnamn = {produktnamn}",
+                                             "Bekräftelse",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question,
+                                             MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                dbconnection.raderaprodukt();
+                btnVisaProdukt_Click(sender, e);
+            }
+            else if (result == DialogResult.No)
+            {
+
+            }
         }
 
-        private void btnVisaProdukt_Click(object sender, EventArgs e)
+        private void Produkter_Load(object sender, EventArgs e)
         {
-            VisaProdukter();
+            Dbconnection dbconnection = new Dbconnection();
+            dbconnection.visaprodukter(gridProdukter);
         }
 
-        private void AndraProdukter()
+        private void gridProdukter_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Kontrollera att vi har en markerad rad i grid
-            if (gridProdukter.SelectedRows.Count != 1) return;
-
-            //Hämta data från grid
-            DataGridViewSelectedRowCollection row = gridProdukter.SelectedRows;
-            int produktid = Convert.ToInt32(row[0].Cells[0].Value);
-
-            //hämta värden från txtfält
-            string produktnamn = txtbProduktnamn.Text.ToString();
-            string produktmarke = txtbProduktmarke.Text.ToString();
-            decimal pris = Convert.ToDecimal(txtbPris.Text);
-            string matvarugrupp = cbMatvarugrupp.Text.ToString();
-            int antal = Convert.ToInt32(txtbAntal.Text);
-
-            //Skapar en SQL Querry
-            string SqlQuerry = $"CALL andraProdukter( '{produktid}', '{produktnamn}', '{produktmarke}', '{pris}', '{matvarugrupp}', '{antal}');";
-
-            
-            //MySqlCommand
-            MySqlCommand cmd = new MySqlCommand(SqlQuerry, conn);
-
+            Dbconnection dbconnection = new Dbconnection();
             try
             {
-                //Öppna koppling till DB
-                conn.Open();
+                gridProdukter.CurrentRow.Selected = true;
 
-                //Exekverar commando
-                cmd.ExecuteReader();
+                produkid = gridProdukter.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString();
+                txtbProduktnamn.Text = gridProdukter.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
+                txtbProduktmarke.Text = gridProdukter.Rows[e.RowIndex].Cells["Märke"].FormattedValue.ToString();
+                txtbPris.Text = gridProdukter.Rows[e.RowIndex].Cells["Pris"].FormattedValue.ToString();
+                txtbAntal.Text = gridProdukter.Rows[e.RowIndex].Cells["Antal"].FormattedValue.ToString();
+                cbMatvarugrupp.Text = gridProdukter.Rows[e.RowIndex].Cells["Matvarugrupp"].FormattedValue.ToString();
 
-                conn.Close();
+
+                produktnamn = txtbProduktnamn.Text;
+                märke = txtbProduktmarke.Text;
+                pris = txtbPris.Text;
+                antal= txtbAntal.Text;
+                matvarugruppid = cbMatvarugrupp.SelectedItem.ToString();
+
+                matvarugrupp = cbMatvarugrupp.Text;
+
             }
-            catch (Exception e)
+            catch
             {
-                MessageBox.Show(e.Message);
+
             }
-
-            //Hämta den nya datan
-            VisaProdukter();
-        }
-
-        private void btnAndraProdukt_Click(object sender, EventArgs e)
-        {
-            AndraProdukter();
         }
 
         private void picExit_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            LoggaIn loggaIn = new LoggaIn();
             this.Close();
+            loggaIn.Show();
         }
 
         private void lblKunder_Click(object sender, EventArgs e)
         {
             Admin admin = new Admin();
-
-            admin.Show();
-
             this.Close();
+            admin.Show();
         }
-
-     
     }
 
 

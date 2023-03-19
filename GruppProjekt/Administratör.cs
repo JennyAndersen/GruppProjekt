@@ -19,7 +19,7 @@ namespace GruppProjekt
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(txtLösenordAdmin.Text == "Losenord123!")
+            if(txtAnvändarnamn.Text == "admin" && txtLösenordAdmin.Text == "losenord123")
             {
                 Admin admin = new Admin();
                 admin.Show();

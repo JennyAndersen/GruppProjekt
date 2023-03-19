@@ -36,6 +36,9 @@
             this.gridProdukter = new System.Windows.Forms.DataGridView();
             this.cBKvantitet = new System.Windows.Forms.ComboBox();
             this.cBProduktNamn = new System.Windows.Forms.ComboBox();
+            this.btnAndra = new System.Windows.Forms.Button();
+            this.btnlist = new System.Windows.Forms.Button();
+            this.btnRadera = new System.Windows.Forms.Button();
             this.btnLaggiVarukorg = new System.Windows.Forms.Button();
             this.btnBetalning = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,6 +63,9 @@
             this.panel1.Controls.Add(this.gridProdukter);
             this.panel1.Controls.Add(this.cBKvantitet);
             this.panel1.Controls.Add(this.cBProduktNamn);
+            this.panel1.Controls.Add(this.btnAndra);
+            this.panel1.Controls.Add(this.btnlist);
+            this.panel1.Controls.Add(this.btnRadera);
             this.panel1.Controls.Add(this.btnLaggiVarukorg);
             this.panel1.Controls.Add(this.btnBetalning);
             this.panel1.Controls.Add(this.label6);
@@ -71,7 +77,7 @@
             this.panel1.Location = new System.Drawing.Point(-11, -6);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(657, 417);
+            this.panel1.Size = new System.Drawing.Size(696, 417);
             this.panel1.TabIndex = 1;
             // 
             // gridVarukorg
@@ -94,7 +100,7 @@
             this.gridVarukorg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridVarukorg.ColumnHeadersHeight = 30;
             this.gridVarukorg.EnableHeadersVisualStyles = false;
-            this.gridVarukorg.Location = new System.Drawing.Point(392, 84);
+            this.gridVarukorg.Location = new System.Drawing.Point(418, 84);
             this.gridVarukorg.Margin = new System.Windows.Forms.Padding(2);
             this.gridVarukorg.MultiSelect = false;
             this.gridVarukorg.Name = "gridVarukorg";
@@ -103,7 +109,7 @@
             this.gridVarukorg.RowHeadersWidth = 40;
             this.gridVarukorg.RowTemplate.Height = 28;
             this.gridVarukorg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridVarukorg.Size = new System.Drawing.Size(241, 254);
+            this.gridVarukorg.Size = new System.Drawing.Size(276, 254);
             this.gridVarukorg.TabIndex = 43;
             // 
             // gridProdukter
@@ -135,54 +141,26 @@
             this.gridProdukter.RowHeadersWidth = 40;
             this.gridProdukter.RowTemplate.Height = 28;
             this.gridProdukter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridProdukter.Size = new System.Drawing.Size(314, 140);
+            this.gridProdukter.Size = new System.Drawing.Size(372, 140);
             this.gridProdukter.TabIndex = 42;
-            this.gridProdukter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProdukter_CellContentClick);
+            this.gridProdukter.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridProdukter_CellClick);
             // 
             // cBKvantitet
             // 
             this.cBKvantitet.FormattingEnabled = true;
             this.cBKvantitet.Items.AddRange(new object[] {
-            "- Välj antal -",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
+            "- Välj antal -"});
             this.cBKvantitet.Location = new System.Drawing.Point(250, 138);
             this.cBKvantitet.Name = "cBKvantitet";
             this.cBKvantitet.Size = new System.Drawing.Size(83, 21);
             this.cBKvantitet.TabIndex = 41;
             this.cBKvantitet.Text = "- Välj antal -";
-            this.cBKvantitet.SelectedIndexChanged += new System.EventHandler(this.cBKvantitet_SelectedIndexChanged);
             // 
             // cBProduktNamn
             // 
             this.cBProduktNamn.FormattingEnabled = true;
             this.cBProduktNamn.Items.AddRange(new object[] {
-            "- Välj Produkt -",
-            "Havregryn",
-            "Yoghurt",
-            "Mjölk",
-            "Vaniljpulver",
-            "Honung",
-            "Havregryn",
-            "Banan",
-            "Ägg",
-            "Bacon",
-            "Spenat",
-            "Tomat",
-            "Avokado",
-            "Smör",
-            "Fralla",
-            "Ättika",
-            "Rödlök",
-            "Socker"});
+            "- Välj Produkt -"});
             this.cBProduktNamn.Location = new System.Drawing.Point(42, 100);
             this.cBProduktNamn.Name = "cBProduktNamn";
             this.cBProduktNamn.Size = new System.Drawing.Size(121, 21);
@@ -190,13 +168,49 @@
             this.cBProduktNamn.Text = "- Välj Produkt -";
             this.cBProduktNamn.SelectedIndexChanged += new System.EventHandler(this.cBProduktNamn_SelectedIndexChanged);
             // 
+            // btnAndra
+            // 
+            this.btnAndra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAndra.Location = new System.Drawing.Point(131, 305);
+            this.btnAndra.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAndra.Name = "btnAndra";
+            this.btnAndra.Size = new System.Drawing.Size(84, 46);
+            this.btnAndra.TabIndex = 40;
+            this.btnAndra.Text = "Ändra list";
+            this.btnAndra.UseVisualStyleBackColor = true;
+            this.btnAndra.Click += new System.EventHandler(this.btnAndra_Click);
+            // 
+            // btnlist
+            // 
+            this.btnlist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlist.Location = new System.Drawing.Point(43, 305);
+            this.btnlist.Margin = new System.Windows.Forms.Padding(2);
+            this.btnlist.Name = "btnlist";
+            this.btnlist.Size = new System.Drawing.Size(84, 46);
+            this.btnlist.TabIndex = 40;
+            this.btnlist.Text = "Lägg till i list";
+            this.btnlist.UseVisualStyleBackColor = true;
+            this.btnlist.Click += new System.EventHandler(this.btnlist_Click);
+            // 
+            // btnRadera
+            // 
+            this.btnRadera.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRadera.Location = new System.Drawing.Point(227, 305);
+            this.btnRadera.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRadera.Name = "btnRadera";
+            this.btnRadera.Size = new System.Drawing.Size(84, 46);
+            this.btnRadera.TabIndex = 40;
+            this.btnRadera.Text = "Radera";
+            this.btnRadera.UseVisualStyleBackColor = true;
+            this.btnRadera.Click += new System.EventHandler(this.btnRadera_Click);
+            // 
             // btnLaggiVarukorg
             // 
             this.btnLaggiVarukorg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaggiVarukorg.Location = new System.Drawing.Point(225, 303);
+            this.btnLaggiVarukorg.Location = new System.Drawing.Point(315, 305);
             this.btnLaggiVarukorg.Margin = new System.Windows.Forms.Padding(2);
             this.btnLaggiVarukorg.Name = "btnLaggiVarukorg";
-            this.btnLaggiVarukorg.Size = new System.Drawing.Size(108, 46);
+            this.btnLaggiVarukorg.Size = new System.Drawing.Size(84, 46);
             this.btnLaggiVarukorg.TabIndex = 40;
             this.btnLaggiVarukorg.Text = "Lägg till i varukorg";
             this.btnLaggiVarukorg.UseVisualStyleBackColor = true;
@@ -281,7 +295,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(650, 257);
+            this.pictureBox1.Location = new System.Drawing.Point(698, 257);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(163, 141);
@@ -292,7 +306,7 @@
             // picExit
             // 
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
-            this.picExit.Location = new System.Drawing.Point(746, -1);
+            this.picExit.Location = new System.Drawing.Point(794, -1);
             this.picExit.Margin = new System.Windows.Forms.Padding(2);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(67, 58);
@@ -306,7 +320,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(813, 406);
+            this.ClientSize = new System.Drawing.Size(863, 406);
             this.Controls.Add(this.picExit);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
@@ -344,5 +358,8 @@
         private System.Windows.Forms.ComboBox cBProduktNamn;
         private System.Windows.Forms.DataGridView gridProdukter;
         private System.Windows.Forms.DataGridView gridVarukorg;
+        private System.Windows.Forms.Button btnRadera;
+        private System.Windows.Forms.Button btnlist;
+        private System.Windows.Forms.Button btnAndra;
     }
 }

@@ -15,231 +15,154 @@ namespace GruppProjekt
     public partial class Bestallning : Form
     {
 
-        MySqlConnection conn;
+        public static string kundlistId { get; set; }
         public static string produktnamn { get; set; }
         public static int antal { get; set; }
         public static int totalpris { get; set; }
         public Bestallning()
         {
             InitializeComponent();
+            txtbPris.Enabled = false;
 
-            //Bygger upp MysqlConnection  objekt för Bestallning
-            string server = "localhost";
-            string database = "grupprojekt";
-            string user = "root";
-            string pass = "Onsala01";
-            string connString = $"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};";
-            conn = new MySqlConnection(connString);
-
-            Dbconnection dbconnection = new Dbconnection();
-            dbconnection.visalistprodukter(gridProdukter);
-
-            VisaProdukter();
-
-            Varukorgen();
         }
 
-        public void VisaProdukter(string keyword = "")
+        Dbconnection dbconnection = new Dbconnection();
+        private void Bestallning_Load(object sender, EventArgs e)
         {
-            //Skapa en sql querrry 
-            string sqlQuerry;
-            if (keyword == "") sqlQuerry = $"CALL visaProdukter();";
-            else sqlQuerry = $"CALL sokProdukter('{keyword}');";
+            List<string> productNames = dbconnection.visaprodukt();
+            cBProduktNamn.Items.AddRange(productNames.ToArray());
+            dbconnection.kundlistprodukter(gridProdukter);
 
-            //skapa ett objekt av mysqlcommand
-            MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
+            dbconnection.kundvarukorg(gridVarukorg);
+        }
 
-            //Exekvera querry mot DB. Få data tillbaka
-            try
+        private void cBProduktNamn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBProduktNamn.Text == "- Välj Produkt -")
             {
-                //Öppnar koppling till DB
-                conn.Open();
+                cBKvantitet.Items.Clear();
+                txtbPris.Text = "";
+            }
+            else
+            {
+                cBKvantitet.Items.Clear();
+                txtbPris.Text = "";
+                produktnamn = cBProduktNamn.Text;
+                dbconnection.visaproduktpris();
+                txtbPris.Text = Dbconnection.produktPrisDb;
 
-                //Exekvera cmd
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                //Placera data i en DataTable objekt
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-
-                //Koppla TD objekt som DataSource till Grid
-                gridProdukter.DataSource = dt;
-
-                //Ladda Reader på Nytt
-                reader = cmd.ExecuteReader();
-
-                //Tömma produktlista 
-                Produkt.produkt.Clear();
-
-                while (reader.Read())
+                for (int i = 1; i <= Convert.ToInt32(Dbconnection.produktAntalDb); i++)
                 {
-                    //Hämta och spara data till variablerna 
-                    int produktid = Convert.ToInt32(reader["produkter_produktid"]);
-                    string produktnamn = reader["produkter_produktnamn"].ToString();
-                    string produktmarke = reader["produkter_produktmarke"].ToString();
-                    string matvarugrupp = reader["produkter_matvarugrupp"].ToString();
-                    decimal pris = Convert.ToDecimal(reader["produkter_pris"]);
-                    int antal = Convert.ToInt32(reader["produkter_antal"]);
-
-                    //Skapa ett personal objekt och spara i den statiska listan 
-                    Produkt.produkt.Add(new Produkt(produktid, produktnamn, produktmarke, pris, matvarugrupp, antal));
+                    cBKvantitet.Items.Add(i);
                 }
+            }
+            
+        }
 
-                //stänga kopplingen till db
-                conn.Close();
-            }
-            catch (Exception e)
+        private void btnAndra_Click(object sender, EventArgs e)
+        {
+            if (cBProduktNamn.Text == "- Välj Produkt -")
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show("Välj a produkt");
             }
+            else
+            {
+                totalpris = Convert.ToInt32(cBKvantitet.Text) * Convert.ToInt32(txtbPris.Text);
+
+                produktnamn = cBProduktNamn.Text;
+
+                antal = int.Parse(cBKvantitet.Text);
+
+                MessageBox.Show($"{produktnamn} {antal} {totalpris}");
+
+                dbconnection.ändrakundlist();
+
+
+                cBProduktNamn.Items.Clear();
+                cBProduktNamn.Text = "- Välj Produkt -";
+                cBKvantitet.Items.Clear();
+                cBKvantitet.Text = "- Välj antal -";
+                txtbPris.Text = "";
+
+
+                Bestallning_Load(sender, e);
+            }
+           
+        }
+
+        private void gridProdukter_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            kundlistId = gridProdukter.Rows[e.RowIndex].Cells["Id"].FormattedValue.ToString();
+            cBProduktNamn.Text = gridProdukter.Rows[e.RowIndex].Cells["Produkt Namn"].FormattedValue.ToString();
+            cBKvantitet.Text = gridProdukter.Rows[e.RowIndex].Cells["Antal"].FormattedValue.ToString();
+            string totalPris = gridProdukter.Rows[e.RowIndex].Cells["Total Pris"].FormattedValue.ToString();
+            
+            int pris = int.Parse(totalPris.ToString()) / int.Parse(cBKvantitet.Text);
+            txtbPris.Text = pris.ToString();
+
 
         }
 
-        private void Varukorgen()
+        private void btnlist_Click(object sender, EventArgs e)
         {
-            //Skapa en SQL Querry 
-            string sqlQuerry = $"SELECT *FROM varukorgen";
 
-            //skapa ett MySqlCommand object
-            MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
-
-            //exekvera qyerry mot DB. Få data tillbaka 
-            try
+            if (cBProduktNamn.Text == "- Välj Produkt -")
             {
-                //Öppna koppling till DB 
-                conn.Open();
-
-                //Exekvera cmd
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                //Placera data i en datatable objekt
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-
-                //koppla Dt objekt som datasource till grid 
-                gridVarukorg.DataSource = dt;
-
-                //Stänga koppling till DB 
-                conn.Close();
-
+                MessageBox.Show("Välj a produkt");
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show(e.Message);
+                totalpris = Convert.ToInt32(cBKvantitet.Text) * Convert.ToInt32(txtbPris.Text);
+
+                produktnamn = cBProduktNamn.Text;
+
+                antal = int.Parse(cBKvantitet.Text);
+
+                // Add a new row to the grid with the values
+                dbconnection.sparakundlist();
+
+                cBProduktNamn.Items.Clear();
+                cBProduktNamn.Text = "- Välj Produkt -";
+                cBKvantitet.Items.Clear();
+                cBKvantitet.Text = "- Välj antal -";
+                txtbPris.Text = "";
+                Bestallning_Load(sender, e);
             }
+
         }
 
         private void picExit_Click(object sender, EventArgs e)
         {
             LoggaIn loggaIn = new LoggaIn();
-            loggaIn.Show();
             this.Close();
+            loggaIn.Show();
+        }
+
+        private void btnRadera_Click(object sender, EventArgs e)
+        {
+            dbconnection.raderakundlistprodukt();
+            Bestallning_Load(sender, e);
         }
 
         private void btnLaggiVarukorg_Click(object sender, EventArgs e)
         {
-            //LaggiVarukorg();
+            dbconnection.LäggiVarukorg();
+            Bestallning_Load(sender, e);
+            dbconnection.kundvarukorg(gridVarukorg);
+            cBProduktNamn.Items.Clear();
+            cBProduktNamn.Text = "- Välj Produkt -";
+            cBKvantitet.Items.Clear();
+            cBKvantitet.Text = "- Välj antal -";
+            txtbPris.Text = "";
+            Bestallning_Load(sender, e);
 
-            DataTable DataTable = new DataTable();
-
-            DataTable.Columns.Add("Produkt", typeof(string));
-            DataTable.Columns.Add("Pris", typeof(string));
-            DataTable.Columns.Add("Antal", typeof(string));
-
-            int n = 0;
-
-            foreach(DataGridViewRow row in gridProdukter.Rows)
-            {
-                if (gridProdukter.Rows.Count != n + 1)
-                {
-                    gridVarukorg.Rows.Add();
-                    gridVarukorg.Rows[n].Cells[0].Value = row.Cells[0].Value.ToString();
-                    gridVarukorg.Rows[n].Cells[1].Value = row.Cells[1].Value.ToString();
-                    gridVarukorg.Rows[n].Cells[2].Value = row.Cells[2].Value.ToString();
-
-                }
-                n++;
-
-            }
-
-            
-           
-
-        }
-
-        private void gridProdukter_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        public void LaggiVarukorg()
-        {
-            //Hämta data från grid
-            DataGridViewSelectedRowCollection row = gridProdukter.SelectedRows;
-            int produktid = Convert.ToInt32(row[0].Cells[0].Value);
-            
-
-            //Hämta textvärden
-            string Kvantitet = Convert.ToString(cBKvantitet.Text);
-
-           
-
-            //Sqlquerry 
-            string SqlQuerry = $"CALL infogaTillVarukorgen({produktid}, {Kvantitet}";
-
-            //sql command
-            MySqlCommand cmd = new MySqlCommand(SqlQuerry, conn);
-
-            try
-            {
-                //öppna koppling till DB 
-                conn.Open();
-
-                //exekverar kommando 
-                cmd.ExecuteReader();
-
-                //stäng koppling till DB 
-                conn.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-
-
-            //Uppdatera varukorgen
-            Varukorgen();
-
-            MessageBox.Show("Produkt tillagd!");
-        }
-
-        private void cBProduktNamn_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Dbconnection dbconnection = new Dbconnection();
-            Dbconnection.produktNamnDb = (string) cBProduktNamn.SelectedItem;
-            dbconnection.visaProdukter();
-            txtbPris.Text = Dbconnection.produktPrisDb;
-        }
-
-        private void cBKvantitet_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            produktnamn = cBProduktNamn.SelectedItem.ToString();
-            antal = Convert.ToInt32(cBKvantitet.SelectedItem.ToString());
-            totalpris = Convert.ToInt32(txtbPris.Text) * antal;
-
-            Dbconnection dbconnection = new Dbconnection();
-            dbconnection.sparalistprodukter();
-            dbconnection.visalistprodukter(gridProdukter);
         }
 
         private void btnBetalning_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Vi har nu fått in din betalning. Tack för att du handlat hos oss! ");
-        }
-
-        private void Bestallning_Load(object sender, EventArgs e)
-        {
-            
+            dbconnection.raderavarkorg();
+            MessageBox.Show("Tack för din betallning.");
+            Bestallning_Load(sender, e);
         }
     }
 }

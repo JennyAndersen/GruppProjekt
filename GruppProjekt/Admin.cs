@@ -180,33 +180,92 @@ namespace GruppProjekt
         //Knapp för att ändra kunder 
         private void btnAndra_Click(object sender, EventArgs e)
         {
-            Namn = txtbNamn.Text;
-            Telefonnummer = txtbTelefonnummer.Text;
-            Adress = txtbAdress.Text;
-            DialogResult result = MessageBox.Show("Är du säker på att du vill ändra den kunden? \n" +
-                                             $"        \nKundnamn = {Namn}",
-                                             "Bekräftelse",
-                                             MessageBoxButtons.YesNo,
-                                             MessageBoxIcon.Question,
-                                             MessageBoxDefaultButton.Button2);
-            if (result == DialogResult.Yes)
+            try
             {
-                dbconnection.ändrakund();
-                btnVisa_Click(sender, e);
+                Namn = txtbNamn.Text;
+                Telefonnummer = txtbTelefonnummer.Text;
+                Adress = txtbAdress.Text;
+                Lösenord = txtbLosenord.Text;
+
+                if (txtbNamn.Text != "")
+                {
+                    errortxtbNamn.SetError(txtbNamn, string.Empty);
+                }
+                else
+                {
+                    errortxtbNamn.SetError(txtbNamn, "Måste finns ett namn");
+                }
+
+                if (txtbTelefonnummer.Text != "")
+                {
+                    errortxtbTelefonnummer.SetError(txtbTelefonnummer, string.Empty);
+                }
+                else
+                {
+                    errortxtbTelefonnummer.SetError(txtbTelefonnummer, "Måste finns telefonenummer");
+                }
+
+                if (txtbAdress.Text != "")
+                {
+                    errortxtbAdress.SetError(txtbAdress, string.Empty);
+                }
+                else
+                {
+                    errortxtbAdress.SetError(txtbAdress, "Måste finns adress");
+                }
+
+          
+
+                if (txtbNamn.Text != "" && txtbTelefonnummer.Text != "" && txtbAdress.Text != "" )
+                {
+
+
+                    if (Dbconnection.Dubblettnamn > 0)
+                    {
+                        errortxtbNamn.SetError(txtbNamn, "Namnet finns redan");
+                    }
+                    else
+                    {
+                        errortxtbNamn.SetError(txtbNamn, string.Empty);
+
+                        
+                        DialogResult result = MessageBox.Show("Är du säker på att du vill ändra den kunden? \n" +
+                                                         $"        \nKundnamn = {Namn}",
+                                                         "Bekräftelse",
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question,
+                                                         MessageBoxDefaultButton.Button2);
+                        if (result == DialogResult.Yes)
+                        {
+                            dbconnection.ändrakund();
+                            btnVisa_Click(sender, e);
+                        }
+                        else if (result == DialogResult.No)
+                        {
+
+                        }
+                    }
+
+
+                }
+                else
+                {
+
+                }
+
             }
-            else if (result == DialogResult.No)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
 
-
-            dbconnection.ändrakund();
-            btnVisa_Click(sender, e);
         }
 
         private void picExit_Click(object sender, EventArgs e)
         {
+            LoggaIn loggaIn = new LoggaIn();
             this.Close();
+            loggaIn.Show();
         }
 
         private void lblProdukter_Click(object sender, EventArgs e)
