@@ -18,7 +18,7 @@ namespace GruppProjekt
         public static string server = "localhost";
         public static string database = "grupprojekt";
         public static string user = "root";
-        public static string pass = "0909";
+        public static string pass = "password";
         MySqlConnection conn = new MySqlConnection($"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};");
 
         public static int login_idDb { get; set; }
@@ -308,7 +308,7 @@ namespace GruppProjekt
 
         public void ändrakund()
         {
-            
+            conn.Close();
             Admin admin = new Admin();
             string query = "grupprojekt.ändrakund;";
 

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bestallning));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridVarukorg = new System.Windows.Forms.DataGridView();
@@ -90,14 +90,14 @@
             this.gridVarukorg.BackgroundColor = System.Drawing.Color.White;
             this.gridVarukorg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridVarukorg.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridVarukorg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridVarukorg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridVarukorg.ColumnHeadersHeight = 30;
             this.gridVarukorg.EnableHeadersVisualStyles = false;
             this.gridVarukorg.Location = new System.Drawing.Point(418, 84);
@@ -122,14 +122,14 @@
             this.gridProdukter.BackgroundColor = System.Drawing.Color.White;
             this.gridProdukter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gridProdukter.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridProdukter.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridProdukter.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gridProdukter.ColumnHeadersHeight = 30;
             this.gridProdukter.EnableHeadersVisualStyles = false;
             this.gridProdukter.Location = new System.Drawing.Point(42, 161);
@@ -170,31 +170,31 @@
             // 
             // btnAndra
             // 
-            this.btnAndra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAndra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAndra.Location = new System.Drawing.Point(131, 305);
             this.btnAndra.Margin = new System.Windows.Forms.Padding(2);
             this.btnAndra.Name = "btnAndra";
             this.btnAndra.Size = new System.Drawing.Size(84, 46);
             this.btnAndra.TabIndex = 40;
-            this.btnAndra.Text = "Ändra list";
+            this.btnAndra.Text = "Ändra varor i listan";
             this.btnAndra.UseVisualStyleBackColor = true;
             this.btnAndra.Click += new System.EventHandler(this.btnAndra_Click);
             // 
             // btnlist
             // 
-            this.btnlist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlist.Location = new System.Drawing.Point(43, 305);
             this.btnlist.Margin = new System.Windows.Forms.Padding(2);
             this.btnlist.Name = "btnlist";
             this.btnlist.Size = new System.Drawing.Size(84, 46);
             this.btnlist.TabIndex = 40;
-            this.btnlist.Text = "Lägg till i list";
+            this.btnlist.Text = "Lägg till varor i listan";
             this.btnlist.UseVisualStyleBackColor = true;
             this.btnlist.Click += new System.EventHandler(this.btnlist_Click);
             // 
             // btnRadera
             // 
-            this.btnRadera.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRadera.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRadera.Location = new System.Drawing.Point(227, 305);
             this.btnRadera.Margin = new System.Windows.Forms.Padding(2);
             this.btnRadera.Name = "btnRadera";
@@ -206,7 +206,7 @@
             // 
             // btnLaggiVarukorg
             // 
-            this.btnLaggiVarukorg.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaggiVarukorg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLaggiVarukorg.Location = new System.Drawing.Point(315, 305);
             this.btnLaggiVarukorg.Margin = new System.Windows.Forms.Padding(2);
             this.btnLaggiVarukorg.Name = "btnLaggiVarukorg";

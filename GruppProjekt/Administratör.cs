@@ -41,5 +41,10 @@ namespace GruppProjekt
 
             this.Close();
         }
+
+        private void txtLösenordAdmin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

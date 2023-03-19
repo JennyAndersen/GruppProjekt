@@ -51,12 +51,12 @@ namespace GruppProjekt
                 }
                 else
                 {
-                    MessageBox.Show("wrong username and password");
+                    MessageBox.Show("Fel användarnamn och lösenord. Vänligen försök igen");
                 }
             }
             catch
             {
-                    MessageBox.Show("w");
+                    MessageBox.Show("Fel användarnamn och lösenord. Vänligen försök igen");
 
             }
 

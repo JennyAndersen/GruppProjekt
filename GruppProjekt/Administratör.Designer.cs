@@ -78,17 +78,19 @@
             // 
             this.txtLösenordAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLösenordAdmin.Location = new System.Drawing.Point(221, 141);
-            this.txtLösenordAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLösenordAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.txtLösenordAdmin.Name = "txtLösenordAdmin";
             this.txtLösenordAdmin.PasswordChar = '*';
             this.txtLösenordAdmin.Size = new System.Drawing.Size(175, 29);
             this.txtLösenordAdmin.TabIndex = 28;
+            this.txtLösenordAdmin.Text = "losenord123";
+            this.txtLösenordAdmin.TextChanged += new System.EventHandler(this.txtLösenordAdmin_TextChanged);
             // 
             // picExit
             // 
             this.picExit.Image = ((System.Drawing.Image)(resources.GetObject("picExit.Image")));
             this.picExit.Location = new System.Drawing.Point(471, 2);
-            this.picExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picExit.Margin = new System.Windows.Forms.Padding(2);
             this.picExit.Name = "picExit";
             this.picExit.Size = new System.Drawing.Size(67, 58);
             this.picExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,7 +102,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(4, 141);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(186, 168);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -126,6 +128,7 @@
             this.txtAnvändarnamn.Name = "txtAnvändarnamn";
             this.txtAnvändarnamn.Size = new System.Drawing.Size(175, 29);
             this.txtAnvändarnamn.TabIndex = 34;
+            this.txtAnvändarnamn.Text = "admin";
             // 
             // Administratör
             // 

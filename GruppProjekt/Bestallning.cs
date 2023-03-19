@@ -161,7 +161,7 @@ namespace GruppProjekt
         private void btnBetalning_Click(object sender, EventArgs e)
         {
             dbconnection.raderavarkorg();
-            MessageBox.Show("Tack för din betallning.");
+            MessageBox.Show("Tack för din order, din order kommer att behandlas så fort som möjligt. Vi har skickat en orderbekräftelse till angiven telefonnummer och faktura kommer att skickas till angiven adress efter leverans.");
             Bestallning_Load(sender, e);
         }
     }
