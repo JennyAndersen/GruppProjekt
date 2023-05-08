@@ -163,9 +163,6 @@ namespace GruppProjekt
             {
                 
             }
-
-
-            
         }
 
         //För att visa listan

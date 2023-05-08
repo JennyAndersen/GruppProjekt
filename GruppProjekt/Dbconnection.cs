@@ -15,33 +15,46 @@ namespace GruppProjekt
 {
     internal class Dbconnection
     {
+        //// Definiera statiska strängar för server, databas, användarnamn och lösenord
         public static string server = "localhost";
         public static string database = "grupprojekt";
         public static string user = "root";
         public static string pass = "Onsala01";
+
+        // // Skapa en anslutningsobjekt för att ansluta till databasen
         MySqlConnection conn = new MySqlConnection($"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};");
 
+        //// Definiera olika statiska variabler för att lagra data från databasen
         public static int login_idDb { get; set; }
         public static int kund_idDb { get; set; }
         public static string användarnamnDb { get; set; }
         public static string lösenordDb { get; set; }
         public static int Dubblettnamn { get; set; }
         public static int Dubblettproduktnamn { get; set; }
-
+        /*
         public static string kund_namnDb { get; set; }
         public static string produktNamnDb { get; set; }
+        */
         public static string produktPrisDb { get; set; }
         public static string produktAntalDb { get; set; }
 
+
+        // Metod för att utföra kundinloggning
         public void kundLogin()
         {
+            //Skapa en instans av LoggaIn-klassen
             LoggaIn loggaIn = new LoggaIn();
             string query = "grupprojekt.Kundlogin";
             conn.Open();
             MySqlCommand cmd = new MySqlCommand(query, conn);
 
+            //Ställ in kommandotypen till lagrad procedur
             cmd.CommandType = CommandType.StoredProcedure;
+
+            //Lägg till parametrar för lagrad procedur
             cmd.Parameters.AddWithValue("$login_användarnamn", LoggaIn.användarnamn);
+
+            //Utför kommandot och hämta resultatet
             using (MySqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
@@ -55,11 +68,12 @@ namespace GruppProjekt
             conn.Close();
         }
 
-
+        // ... Resten av koden fortsätter på samma sätt med olika metoder för att utföra olika databasoperationer ...
 
         internal void kundlistprodukter(DataGridView dataGridView)
         {
             string query = "grupprojekt.kundlistprodukter";
+
             conn.Open();
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -131,9 +145,7 @@ namespace GruppProjekt
             cmd.Parameters.AddWithValue("$antal", Bestallning.antal);
             cmd.Parameters.AddWithValue("$totalpris", Bestallning.totalpris);
             cmd.Parameters.AddWithValue("$kundId", kund_idDb);
-
             var ds = new DataSet();
-
             cmd.ExecuteReader();
 
             conn.Close();
