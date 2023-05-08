@@ -18,7 +18,7 @@ namespace GruppProjekt
         public static string server = "localhost";
         public static string database = "grupprojekt";
         public static string user = "root";
-        public static string pass = "password";
+        public static string pass = "Onsala01";
         MySqlConnection conn = new MySqlConnection($"SERVER={server};DATABASE={database};UID={user};PASSWORD={pass};");
 
         public static int login_idDb { get; set; }
